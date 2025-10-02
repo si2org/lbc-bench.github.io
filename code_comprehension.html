@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWE-bench</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <div class="sidebar-overlay"></div>
+<header class="mobile-header">
+    <a href="/" class="mobile-logo"><img src="img/si2logo.png" alt="LBC-bench logo" class="sidebar-logo-icon">LBC-bench</a>
+    <button class="sidebar-opener" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+    </button>
+</header>
+
+<aside class="sidebar">
+    <div class="sidebar-header">
+         <a href="/" class="sidebar-logo"><img src="img/si2logo.png" alt="LBC-bench logo" class="sidebar-logo-icon">LBC-bench</a>
+         <button class="mobile-nav-toggle" aria-label="Close menu">
+             <i class="fas fa-times"></i>
+         </button>
+    </div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html" class="nav-link" data-page="index">Leaderboards</a></li>
+            <li class="nav-section-title">Benchmarks</li>
+            <li><a href="code_generation.html" class="nav-link" data-page="original">Code Generation</a></li>
+            <li><a href="code_comprehension.html" class="nav-link" data-page="lite">Code Comprehension</a></li>
+            <li><a href="context_heavy.html" class="nav-link" data-page="docs">Context Heavy</a></li>
+
+            <li class="nav-section-title">About</li>
+            <li><a href="https://arxiv.org/pdf/2506.14074" class="nav-link" data-page="paper">Paper <i class="fas fa-external-link-alt"></i></a></li>
+            <li><a href="https://github.com/NVlabs/cvdp_benchmark" class="nav-link">CVDP Benchmarks GitHub</a></li>
+            <li><a href="https://huggingface.co/datasets/nvidia/cvdp-benchmark-dataset" class="nav-link">CVDP Benchmarks Hugging Face</a></li>
+            <li><a href="https://www.businesswire.com/news/home/20250806010450/en/Si2-Announces-Creation-of-the-Si2-LLM-Benchmarking-Coalition?utm_campaign=shareaholic&utm_medium=linkedin&utm_source=socialnetwork" class="nav-link">Press</a></li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+        </a>
+        &nbsp;
+        <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i>
+        </a>
+        &nbsp;
+        <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
+        </a>
+        &nbsp;
+        <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-slack"></i>
+        </a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+</aside>
+    
+    <div class="main-content">
+        
+    <header class="page-header">
+        <div class="container">
+            <div class="d-flex align-center mb-3">
+                <img src="img/si2logo.png" alt="LBC Logo" style="height: 5em; width: auto; margin-right: 1em;">
+                <h1 class="mb-0">LBC-bench</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="content-box">
+            <h2>Overview</h2>
+            <p>
+                Code Comprehension tasks measure a model’s ability to interpret existing 
+                RTL and testbench artifacts, ensuring alignment with specifications and 
+                accurate technical reasoning.
+            </p>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="content-box">
+            <h2>Task Categories</h2>
+            <ul>
+                <li>
+                    <p>
+                        <strong>Specification ↔ RTL Correspondence – </strong> map between natural language specifications and RTL modules.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <strong>Test Plan ↔ Testbench Correspondence – </strong> map between test plans and testbench implementations.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <strong>Technical Q&A on RTL or Testbenches - </strong> answer detailed questions about provided RTL or testbench code.
+                    </p>
+                </li>
+            <ul>
+        </section>
+
+       <!-- Formats Section -->
+        <section class="content-box">
+            <h2>Formats</h2>
+            <ul>
+                <li>
+                    <p>
+                        Provided in <strong>Non-Agentic </strong> format only.
+                    </p>
+                </li>
+            <ul>
+        </section>
+
+        <!-- Evaluation Criteria Section -->
+        <section id="evaluation_criteria" class="content-box">
+            <h2>Evaluation Criteria</h2>
+            <ul>
+                <li>
+                    <p>BLEU scores for correspondence tasks.</p>
+                </li>
+                <li>
+                    <p>LLM-based judging for Q&A.</p>
+                </li>
+            <ul>
+        </section>
+    </div>
+
+        
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-copyright">
+                        &copy; 2025 LBC-bench Team. All rights reserved.
+                    </div>
+                    <div class="footer-links">
+                        <a href="#" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">HuggingFace</a>
+                        <a href="#" target="_blank">Paper</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Common JS files -->
+    <script src="js/mainResults.js"></script>
+    <script src="js/citation.js"></script>
+    <script src="js/citationFormat.js"></script>
+    
+    <!-- Page-specific JS files will be injected here -->
+    
+
+    <script>
+        function initTheme() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            const storedTheme = localStorage.getItem('theme');
+            
+            if (storedTheme === 'dark' || (!storedTheme && prefersDarkScheme.matches)) {
+                document.body.classList.add('dark-mode');
+            }
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('dark-mode');
+                    
+                    const isDarkMode = document.body.classList.contains('dark-mode');
+                    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                });
+            }
+            
+            prefersDarkScheme.addEventListener('change', (e) => {
+                if (!localStorage.getItem('theme')) {
+                    if (e.matches) {
+                        document.body.classList.add('dark-mode');
+                    } else {
+                        document.body.classList.remove('dark-mode');
+                    }
+                }
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initTheme();
+            
+            const currentPath = window.location.pathname;
+            const currentPage = currentPath.split('/').pop().split('.')[0] || 'index';
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('data-page');
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+                
+                if (currentPage === 'index' && window.location.hash) {
+                    const currentHash = window.location.hash.substring(1);
+                    if (linkPage === currentHash) {
+                        link.classList.add('active');
+                    }
+                }
+            });
+            
+            const sidebarOpener = document.querySelector('.sidebar-opener');
+            const sidebarCloser = document.querySelector('.sidebar .mobile-nav-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            
+            if ((sidebarOpener || sidebarCloser) && sidebar && overlay) {
+                function toggleMenu() {
+                    sidebar.classList.toggle('open');
+                    overlay.classList.toggle('active');
+                }
+                
+                function openMenu() {
+                    sidebar.classList.add('open');
+                    overlay.classList.add('active');
+                }
+                
+                function closeMenu() {
+                    sidebar.classList.remove('open');
+                    overlay.classList.remove('active');
+                }
+                
+                if (sidebarOpener) {
+                    sidebarOpener.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openMenu();
+                    });
+                }
+                
+                if (sidebarCloser) {
+                    sidebarCloser.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        closeMenu();
+                    });
+                }
+                
+                overlay.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    closeMenu();
+                });
+                
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (sidebar.classList.contains('open')) {
+                            closeMenu();
+                        }
+                    });
+                });
+                
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+                        closeMenu();
+                    }
+                });
+            }
+        });
+    </script>
+
+    
+    <!-- Citation functionality now provided by citation.js and citationFormat.js loaded in base.html -->
+
+</body>
+</html> 

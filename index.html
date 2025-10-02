@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LBC-bench Leaderboards</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <div class="sidebar-overlay"></div>
+<header class="mobile-header">
+    <a href="/" class="mobile-logo"><img src="img/si2logo.png" alt="LBC-bench logo" class="sidebar-logo-icon">LBC-bench</a>
+    <button class="sidebar-opener" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+    </button>
+</header>
+
+<aside class="sidebar">
+    <div class="sidebar-header">
+         <a href="/" class="sidebar-logo"><img src="img/si2logo.png" alt="LBC-bench logo" class="sidebar-logo-icon">LBC-bench</a>
+         <button class="mobile-nav-toggle" aria-label="Close menu">
+             <i class="fas fa-times"></i>
+         </button>
+    </div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html" class="nav-link" data-page="index">Leaderboards</a></li>
+            <li class="nav-section-title">Benchmarks</li>
+            <li><a href="code_generation.html" class="nav-link" data-page="original">Code Generation</a></li>
+            <li><a href="code_comprehension.html" class="nav-link" data-page="lite">Code Comprehension</a></li>
+            <li><a href="context_heavy.html" class="nav-link" data-page="docs">Context Heavy</a></li>
+
+            <li class="nav-section-title">About</li>
+            <li><a href="https://arxiv.org/pdf/2506.14074" class="nav-link" data-page="paper">Paper <i class="fas fa-external-link-alt"></i></a></li>
+            <li><a href="https://github.com/NVlabs/cvdp_benchmark" class="nav-link">CVDP Benchmarks GitHub</a></li>
+            <li><a href="https://huggingface.co/datasets/nvidia/cvdp-benchmark-dataset" class="nav-link">CVDP Benchmarks Hugging Face</a></li>
+            <li><a href="https://www.businesswire.com/news/home/20250806010450/en/Si2-Announces-Creation-of-the-Si2-LLM-Benchmarking-Coalition?utm_campaign=shareaholic&utm_medium=linkedin&utm_source=socialnetwork" class="nav-link">Press</a></li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+        </a>
+        &nbsp;
+        <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i>
+        </a>
+        &nbsp;
+        <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
+        </a>
+        &nbsp;
+        <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-slack"></i>
+        </a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+</aside>
+    
+    <div class="main-content">
+        
+    <header class="page-header">
+        <div class="container">
+            <div class="header-logo-container">
+                <h1>
+                    <img src="img/si2logo.png" alt="LBC-bench Logo" class="header-logo-small">
+                    Leaderboards
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <section class="container">
+
+        <div id="random-announcement"></div>
+
+        <script>
+            const random = Math.random();
+            
+            let announcementHTML;
+            
+            announcementHTML = ``;
+            // Insert the selected announcement into the DOM
+            document.getElementById('random-announcement').innerHTML = announcementHTML;
+        </script>
+
+        <div class="content-section" id="leaderboard">
+            <div class="leaderboard-tabs">
+                <div class="leaderboard-tab-list">
+                    <button class="tablinks" data-leaderboard="code-generation-limited-context">Code Generation Limited Context</button>
+                    <button class="tablinks" data-leaderboard="code-comprehension">Code Comprehension</button>
+                    <button class="tablinks" data-leaderboard="code-generation-heavy-context">Code Generation Heavy Context</button>
+                </div>
+            </div>
+
+            
+    <script src="js/leaderboardFilters.js"></script>
+
+
+<div class="mb-2 leaderboard-header-container">
+    <div id="leaderboard-description-text">
+        <!-- Dynamic text will be inserted here -->
+    </div>
+    <div class="filter-controls-group border-top pt-2">
+        <div class="filter-title">Filters:</div>
+        <div class="filter-buttons">
+            <!-- Main Filters Dropdown -->
+            <!--
+            <div class="multiselect-container" id="main-filters">
+                <button class="btn btn-sm btn-outline-secondary filter-toggle multiselect-toggle" type="button" title="Filter by system properties">
+                    <span class="multiselect-summary">Open Scaffold</span>
+                    <span class="multiselect-icon">▼</span>
+                </button>
+                <form class="multiselect-form">
+                    <div class="multiselect-dropdown">
+                        <div class="multiselect-options">
+                        </div>
+                    </div>
+                </form>
+            </div> -->
+
+            <!-- Tags Dropdown -->
+            <div class="multiselect-container" id="tag-filters">
+                <button class="btn btn-sm btn-outline-secondary filter-toggle multiselect-toggle" type="button" title="Filter by tags">
+                    <span class="multiselect-summary">All Tags</span>
+                    <span class="multiselect-icon">▼</span>
+                </button>
+                <form class="multiselect-form">
+                    <div class="multiselect-dropdown">
+                        <div class="multiselect-options" id="tag-options-container">
+                            <!-- Tag options will be dynamically populated here -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="leaderboard-search">
+            <input type="input" id="leaderboard-search-input" placeholder="Search..." />
+        </div>
+    </div>
+</div>
+
+<!-- Container for dynamically loaded table content -->
+<div id="leaderboard-container">
+    <!-- Initial table will be loaded here -->
+</div>
+
+<script type="application/json" id="leaderboard-data">
+    [{"name": "code-generation-limited-context", "results": [{"checked": true, "cost": 1000, "date": "2025-05-22", "folder": "20250522_amazon-q-developer-agent-20250405-dev", "logo": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"], "logs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/logs", "name": "Amazon Q Developer Agent (v20250405-dev)", "resolved_full": 37.1, "resolved_oss": 40.8, "site": "https://aws.amazon.com/q/developer/", "tags": ["Open Source Tool: Verilator", "Commercial Tool: Xcellium", "Model: claude-4-sonnet-20250514", "Org: AWS", "Evaluation style: non-agentic", "Single turn: false"], "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs", "warning": null}, {"checked": false, "cost": 1000, "date": "2025-05-22", "folder": "20250522_amazon-q-developer-agent-20250405-dev", "logo": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"], "logs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/logs", "name": "Developer Agent (v20250405-dev)", "resolved_full": 39.1, "resolved_oss": 40.8, "site": "https://aws.amazon.com/q/developer/", "tags": ["Open Source Tool: Verilator", "Commercial Tool: Xcellium", "Model: claude-4-sonnet-20250514", "Org: AWS", "Evaluation style: agentic", "Single turn: false"], "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs", "warning": "Warnings observed"}]}, {"name": "code-comprehension", "results": [{"checked": false, "cost": 1000, "date": "2025-05-22", "folder": "20250522_amazon-q-developer-agent-20250405-dev", "logo": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"], "logs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/logs", "name": "Agent Orange (v20250405-dev)", "resolved_full": 37.1, "resolved_oss": 40.8, "site": "https://aws.amazon.com/q/developer/", "tags": ["Open Source Tool: Verilator", "Commercial Tool: Xcellium", "Model: claude-4-sonnet-20250514", "Org: MS", "Evaluation style: agentic", "Single turn: false"], "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs", "warning": null}]}, {"name": "code-generation-heavy-context", "results": [{"checked": false, "cost": 1000, "date": "2025-05-22", "folder": "20250522_amazon-q-developer-agent-20250405-dev", "logo": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"], "logs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/logs", "name": "Agent White (v20250405-dev)", "resolved_full": 37.1, "resolved_oss": 70.8, "site": "https://aws.amazon.com/q/developer/", "tags": ["Open Source Tool: Verilator", "Commercial Tool: Xcelium", "Model: claude-4-sonnet-20250514", "Org: MS", "Evaluation style: agentic", "Single turn: false"], "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs", "warning": null}, {"checked": false, "cost": 1000, "date": "2025-05-22", "folder": "20250522_amazon-q-developer-agent-20250405-dev", "logo": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"], "logs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/logs", "name": "Developer Agent (v20250405-dev)", "resolved_full": 39.1, "resolved_oss": 40.8, "site": "https://aws.amazon.com/q/developer/", "tags": ["Open Source Tool: Icarus", "Commercial Tool: Xcellium", "Model: claude-4-sonnet-20250514", "Org: Google", "Evaluation style: agentic", "Single turn: false"], "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs", "warning": "No Warnings!"}]}]
+</script>
+
+<script type="application/json" id="leaderboard-tags-data">
+    {"code-comprehension": ["Commercial Tool: Xcellium", "Evaluation style: agentic", "Model: claude-4-sonnet-20250514", "Open Source Tool: Verilator", "Org: MS", "Single turn: false"], "code-generation-heavy-context": ["Commercial Tool: Xcelium", "Commercial Tool: Xcellium", "Evaluation style: agentic", "Model: claude-4-sonnet-20250514", "Open Source Tool: Icarus", "Open Source Tool: Verilator", "Org: Google", "Org: MS", "Single turn: false"], "code-generation-limited-context": ["Commercial Tool: Xcellium", "Evaluation style: agentic", "Evaluation style: non-agentic", "Model: claude-4-sonnet-20250514", "Open Source Tool: Verilator", "Org: AWS", "Single turn: false"]}
+</script>
+
+<div class="leaderboard-notes">
+</div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="content-section" id="news">
+            <h2 class="content-section-title">News</h2>
+            <ul>
+            </ul>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="content-section" id="about">
+            <h2 class="content-section-title">Acknowledgements</h2>
+        </div>
+    </section>
+
+        
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-copyright">
+                        &copy; 2025 LBC-bench Team. All rights reserved.
+                    </div>
+                    <div class="footer-links">
+                        <a href="#" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">HuggingFace</a>
+                        <a href="#" target="_blank">Paper</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Common JS files -->
+    <script src="js/mainResults.js"></script>
+    <script src="js/citation.js"></script>
+    <script src="js/citationFormat.js"></script>
+    
+    <script src="js/tableByYear.js"></script>
+    <script src="js/tableByRepo.js"></script>
+
+
+    <script>
+        function initTheme() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            const storedTheme = localStorage.getItem('theme');
+            
+            if (storedTheme === 'dark' || (!storedTheme && prefersDarkScheme.matches)) {
+                document.body.classList.add('dark-mode');
+            }
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('dark-mode');
+                    
+                    const isDarkMode = document.body.classList.contains('dark-mode');
+                    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                });
+            }
+            
+            prefersDarkScheme.addEventListener('change', (e) => {
+                if (!localStorage.getItem('theme')) {
+                    if (e.matches) {
+                        document.body.classList.add('dark-mode');
+                    } else {
+                        document.body.classList.remove('dark-mode');
+                    }
+                }
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initTheme();
+            
+            const currentPath = window.location.pathname;
+            const currentPage = currentPath.split('/').pop().split('.')[0] || 'index';
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('data-page');
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+                
+                if (currentPage === 'index' && window.location.hash) {
+                    const currentHash = window.location.hash.substring(1);
+                    if (linkPage === currentHash) {
+                        link.classList.add('active');
+                    }
+                }
+            });
+            
+            const sidebarOpener = document.querySelector('.sidebar-opener');
+            const sidebarCloser = document.querySelector('.sidebar .mobile-nav-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            
+            if ((sidebarOpener || sidebarCloser) && sidebar && overlay) {
+                function toggleMenu() {
+                    sidebar.classList.toggle('open');
+                    overlay.classList.toggle('active');
+                }
+                
+                function openMenu() {
+                    sidebar.classList.add('open');
+                    overlay.classList.add('active');
+                }
+                
+                function closeMenu() {
+                    sidebar.classList.remove('open');
+                    overlay.classList.remove('active');
+                }
+                
+                if (sidebarOpener) {
+                    sidebarOpener.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openMenu();
+                    });
+                }
+                
+                if (sidebarCloser) {
+                    sidebarCloser.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        closeMenu();
+                    });
+                }
+                
+                overlay.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    closeMenu();
+                });
+                
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (sidebar.classList.contains('open')) {
+                            closeMenu();
+                        }
+                    });
+                });
+                
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+                        closeMenu();
+                    }
+                });
+            }
+        });
+    </script>
+
+    
+
+</body>
+</html> 
