@@ -1,0 +1,101 @@
+[
+    {
+        "title": "PyTorch Expert Exchange: Towards Autonomous Language Model Systems",
+        "link": "https://www.youtube.com/watch?v=yAQw77juYSg",
+        "date": "2025-05-21",
+        "source": "PyTorch",
+        "video": true
+    },
+    {
+        "title": "How to build a better AI benchmark",
+        "link": "https://www.technologyreview.com/2025/05/08/1116192/how-to-build-a-better-ai-benchmark/",
+        "date": "2025-05-08",
+        "source": "MIT Technology Review"
+    },
+    {
+        "title": "SWE-bench with John Yang and Carlos E. Jimenez - Weaviate Podcast #107!",
+        "link": "https://www.youtube.com/watch?v=8rwHAR4fsFg&pp=ygUJc3dlLWJlbmNo",
+        "date": "2024-10-30",
+        "source": "Weaviate Podcast",
+        "video": true
+    },
+    {
+        "title": "SWE-Bench authors reflect on the state of LLM agents at Neurips 2024",
+        "link": "https://www.youtube.com/watch?v=bivZWNQHRfE&pp=ygUJc3dlLWJlbmNo",
+        "date": "2025-01-13",
+        "source": "Jay Alammar",
+        "video": true
+    },
+    {
+        "title": "SWE bench & SWE agent | Data Brew | Episode 44",
+        "link": "https://www.youtube.com/watch?v=LgONGe838D0",
+        "date": "2025-04-17",
+        "source": "Databricks",
+        "video": true
+    },
+    {
+        "title": "John Yang - SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+        "link": "https://www.youtube.com/watch?v=DrLdvbkgmeA&pp=ygUJc3dlLWJlbmNo",
+        "date": "2023-11-03",
+        "source": "Rohan Alexander",
+        "video": true
+    },
+    {
+        "title": "AI Agent Automatically Codes WITH TOOLS - SWE-Agent Tutorial",
+        "link": "https://www.youtube.com/watch?v=9-JBHGlYEBI&list=PLhjeIHf6kJlUTPdUDDh3rLbaBT7-uRwa0&index=1&pp=iAQB",
+        "date": "2024-04-05",
+        "source": "Matthew Berman",
+        "video": true
+    },
+    {
+        "title": "SWE-agent: A deep dive",
+        "link": "https://www.youtube.com/watch?v=RJ6NN8Y-xok",
+        "date": "2024-04-02",
+        "source": "Ofir Press",
+        "video": true
+    },
+    {
+        "title": "A First Look at SWE-agent",
+        "link": "https://www.youtube.com/watch?v=CeMtJ4XObAM",
+        "date": "2024-04-01",
+        "source": "Carlos E. Jimenez",
+        "video": true
+    },
+    {
+        "title": "NeurIPS Hacker Cup AI: SWEAgent",
+        "link": "https://www.youtube.com/watch?v=d9gcXpiiDao",
+        "date": "2024-08-15",
+        "source": "Weights & Biases",
+        "video": true
+    },
+    {
+        "title": "Autonomous Coding Agents, Instability at Stability AI, Mamba Mania, What Users Do With GenAI",
+        "link": "https://www.deeplearning.ai/the-batch/issue-244/",
+        "date": "2024-04-10",
+        "source": "DeepLearning.AI"
+    },
+    {
+        "title": "I glimpsed the future of coding",
+        "link": "https://link.wired.com/public/36091943",
+        "date": "2024-07-18",
+        "source": "Wired"
+    },
+    {
+        "title": "The AI-Powered Future of Coding Is Near",
+        "link": "https://www.wired.com/ai-powered-coding/",
+        "date": "2024-07-18",
+        "source": "Wired"
+    },
+    {
+        "title": "Raising the bar on SWE-bench Verified with Claude 3.5 Sonnet",
+        "link": "https://www.anthropic.com/engineering/swe-bench-sonnet",
+        "date": "2025-01-06",
+        "source": "Anthropic"
+    },
+    {
+        "title": "AI models still struggle to debug software, Microsoft study shows",
+        "link": "https://techcrunch.com/2025/04/10/ai-models-still-struggle-to-debug-software-microsoft-study-shows/",
+        "date": "2025-04-10",
+        "source": "TechCrunch"
+    }
+]

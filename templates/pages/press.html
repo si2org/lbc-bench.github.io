@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}SWE-bench Press{% endblock %}
+
+{% block head_extra %}
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+{% endblock %}
+
+{% block content %}
+    <header class="page-header">
+        <div class="container">
+            <h1>Press</h1>
+            <p>Check out news and articles about SWE-bench / agent / smith.</p>
+        </div>
+    </header>
+
+    <section class="container">
+        {% for item in press %}
+            <!-- <div class="content-section"> -->
+                <p>
+                    {{item.date}} &bull; {{item.source}} &bull;
+                    <a href="{{item.link}}" target="_blank" rel="noopener noreferrer">
+                        {% if item.video %}<i class="fa-solid fa-video"></i>{% endif %}
+                        {{item.title}}
+                    </a>
+                </p>
+            <!-- </div> -->
+        {% endfor %}
+    </section>
+{% endblock %}

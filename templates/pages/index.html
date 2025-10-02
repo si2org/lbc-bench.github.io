@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}LBC-bench Leaderboards{% endblock %}
+
+{% block head_extra %}
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+{% endblock %}
+
+{% block js_files %}
+    <script src="js/tableByYear.js"></script>
+    <script src="js/tableByRepo.js"></script>
+{% endblock %}
+
+{% block content %}
+    <header class="page-header">
+        <div class="container">
+            <div class="header-logo-container">
+                <h1>
+                    <img src="img/si2logo.png" alt="LBC-bench Logo" class="header-logo-small">
+                    Leaderboards
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <section class="container">
+
+        <div id="random-announcement"></div>
+
+        <script>
+            const random = Math.random();
+            
+            let announcementHTML;
+            
+            announcementHTML = ``;
+            // Insert the selected announcement into the DOM
+            document.getElementById('random-announcement').innerHTML = announcementHTML;
+        </script>
+
+        <div class="content-section" id="leaderboard">
+            <div class="leaderboard-tabs">
+                <div class="leaderboard-tab-list">
+                    <button class="tablinks" data-leaderboard="code-generation-limited-context">Code Generation Limited Context</button>
+                    <button class="tablinks" data-leaderboard="code-comprehension">Code Comprehension</button>
+                    <button class="tablinks" data-leaderboard="code-generation-heavy-context">Code Generation Heavy Context</button>
+                </div>
+            </div>
+
+            {% include "_leaderboard_table.html" %}
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="content-section" id="news">
+            <h2 class="content-section-title">News</h2>
+            <ul>
+            </ul>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="content-section" id="about">
+            <h2 class="content-section-title">Acknowledgements</h2>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts_extra %}
+{% endblock %}

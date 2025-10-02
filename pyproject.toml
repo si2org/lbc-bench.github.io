@@ -1,0 +1,10 @@
+[project]
+name = "lbc-bench-website"
+readme = "README.md"
+version = "0"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+dependencies = [
+    "jinja2>=3.0.0",
+    "jsonschema>=4.0.0",
+]

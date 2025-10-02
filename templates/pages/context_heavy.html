@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}SWE-bench{% endblock %}
+
+{% block head_extra %}
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+{% endblock %}
+
+{% block content %}
+    <header class="page-header">
+        <div class="container">
+            <div class="d-flex align-center mb-3">
+                <img src="img/si2logo.png" alt="LBC Logo" style="height: 5em; width: auto; margin-right: 1em;">
+                <h1 class="mb-0">LBC-bench</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="content-box">
+            <h2>Overview</h2>
+            <p>
+                Unlike the <strong>oracle-context</strong> tasks in standard Code Generation, 
+                Heavy Context Code Generation problems embed challenges inside 
+                <strong>real-world open-source repositories.</strong> 
+                Instead of providing only the minimal context, these tasks expose models to larger 
+                codebases where relevant modules, dependencies, and hierarchy must often 
+                be navigated before producing correct solutions. They are designed to evaluate 
+                <strong>agentic systems only,</strong> emphasizing repository exploration, 
+                tool usage, and integration.
+            </p>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="content-box">
+            <h2>Task Categories</h2>
+            <ul>
+                <li>
+                    <p>
+                        Shares the same categories as Code Generation, but with much more emphasis on <strong>debug. </strong>
+                    </p>
+                </li>
+            <ul>
+        </section>
+
+       <!-- Formats Section -->
+        <section class="content-box">
+            <h2>Formats</h2>
+            <ul>
+                <li>
+                    <p>
+                        <strong>Agentic only </strong>: multi-step tasks requiring repository inspection, navigation, and simulator/synthesis tool interaction
+                    </p>
+                </li>
+            <ul>
+        </section>
+
+        <!-- Evaluation Criteria Section -->
+        <section id="evaluation_criteria" class="content-box">
+            <h2>Evaluation Criteria</h2>
+            <ul>
+                <li>
+                    <p>Success measured by repository build and testbench execution.</p>
+                </li>
+                <li>
+                    <p>pass@k metrics across sampled runs.</p>
+                </li>
+                <li>
+                    <p>Consistency checks to ensure integration without breaking dependencies.</p>
+                </li>
+            <ul>
+        </section>
+    </div>
+{% endblock %}
+
+{% block scripts_extra %}
+    <!-- Citation functionality now provided by citation.js and citationFormat.js loaded in base.html -->
+{% endblock %}

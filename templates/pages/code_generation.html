@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}SWE-bench{% endblock %}
+
+{% block head_extra %}
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+{% endblock %}
+
+{% block content %}
+    <header class="page-header">
+        <div class="container">
+            <div class="d-flex align-center mb-3">
+                <img src="img/si2logo.png" alt="LBC Logo" style="height: 5em; width: auto; margin-right: 1em;">
+                <h1 class="mb-0">LBC-bench</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="content-box">
+            <h2>Overview</h2>
+            <p>
+                Code Generation tasks evaluate whether models can produce correct RTL and 
+                verification code. These problems mirror real workflows such as module design, 
+                modification, refinement, and testbench development, testing both syntax and 
+                functional correctness. All tasks are constructed in an <strong>oracle-context</strong> setting, 
+                where only the minimal relevant information is provided. This ensures evaluation 
+                focuses on code reasoning and correctness rather than retrieval.
+            </p>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="content-box">
+            <h2>Task Categories</h2>
+            <ul>
+                <li>
+                    <p>
+                        <strong>RTL Code Completion – </strong> fill in missing segments of RTL.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <strong>Specification to RTL Translation – </strong> implement modules from natural language descriptions.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <strong>RTL Code Improvement - </strong> refine code for lint-clean results or better quality-of-results (QoR).
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <strong>Design Verification - </strong> generate testbench stimulus, checkers, assertions, or perform bug fixing.
+                    </p>
+                </li>
+            <ul>
+        </section>
+
+       <!-- Formats Section -->
+        <section class="content-box">
+            <h2>Formats</h2>
+            <ul>
+                <li>
+                    <p>
+                        <strong>Non-Agentic </strong>: single-turn prompts with direct outputs.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <strong>Agentic </strong>: multi-step problems with tool use (e.g., simulators).
+                    </p>
+                </li>
+            <ul>
+        </section>
+
+        <!-- Evaluation Criteria Section -->
+        <section id="evaluation_criteria" class="content-box">
+            <h2>Evaluation Criteria</h2>
+            <ul>
+                <li>
+                    <p>Pass/fail via simulation harnesses.</p>
+                </li>
+                <li>
+                    <p>pass@k metrics (typically pass@1).</p>
+                </li>
+                <li>
+                    <p>Syntax and lint checks for validity.</p>
+                </li>
+            <ul>
+        </section>
+    </div>
+{% endblock %}
+
+{% block scripts_extra %}
+    <!-- Citation functionality now provided by citation.js and citationFormat.js loaded in base.html -->
+{% endblock %}
