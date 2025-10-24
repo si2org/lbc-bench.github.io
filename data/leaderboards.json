@@ -78,7 +78,7 @@
                 "Evaluation style: agentic",
                 "Single turn: false"
             ],
-            "warning": null
+            "warning": "There were some warnings!  See the log files."
         }
       ]
     },
@@ -131,7 +131,7 @@
                 "Evaluation style: agentic",
                 "Single turn: false"
             ],
-            "warning": "No Warnings!"
+            "warning": "None Observed!"
         }
       ]
     }
