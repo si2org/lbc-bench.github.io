@@ -87,7 +87,7 @@ function renderLeaderboardTable(leaderboard) {
     // const isBashOnly = leaderboard.name.toLowerCase() === 'code-generation-limited-context';
     
     const results = leaderboard.results
-        .filter(item => !item.warning)
+        // .filter(item => !item.warning)
         .slice()
         .sort((a, b) => sortItems(a, b, sortState.field, sortState.direction));
 
