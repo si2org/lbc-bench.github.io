@@ -10,42 +10,42 @@
             ],
             "site": "https://aws.amazon.com/q/developer/",
             "folder": "20250522_amazon-q-developer-agent-20250405-dev",
-            "cost": 1000,
+            "cost": 1300,
             "resolved_full": 37.1,
-            "resolved_oss": 40.8,
+            "resolved_oss": 60.0,
             "date": "2025-05-22",
             "logs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/logs",
             "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs",
             "checked": true,
             "tags": [
                 "Open Source Tool: Verilator",
-                "Commercial Tool: Xcellium",
-                "Model: claude-4-sonnet-20250514",
+                "Commercial Tool: Xcelium",
+                "Model: gpt-4o-mini",
                 "Org: AWS",
                 "Evaluation style: non-agentic",
-                "Single turn: false"
+                "Single turn: true"
             ],
             "warning": null
         },
         {
-            "name": "Developer Agent (v20250405-dev)",
+            "name": "Agent grey (v20250405-dev)",
             "logo": [
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"
             ],
-            "site": "https://aws.amazon.com/q/developer/",
+            "site": "https://si2.org",
             "folder": "20250522_amazon-q-developer-agent-20250405-dev",
             "cost": 1000,
             "resolved_full": 39.1,
             "resolved_oss": 40.8,
-            "date": "2025-05-22",
+            "date": "2025-06-22",
             "logs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/logs",
             "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs",
                 "checked": false,
             "tags": [
                 "Open Source Tool: Verilator",
-                "Commercial Tool: Xcellium",
+                "Commercial Tool: VCS",
                 "Model: claude-4-sonnet-20250514",
-                "Org: AWS",
+                "Org: Si2",
                 "Evaluation style: agentic",
                 "Single turn: false"
             ],
@@ -61,19 +61,19 @@
             "logo": [
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"
             ],
-            "site": "https://aws.amazon.com/q/developer/",
+            "site": "https://si2.org/programs",
             "folder": "20250522_amazon-q-developer-agent-20250405-dev",
-            "cost": 1000,
+            "cost": 1060,
             "resolved_full": 37.1,
             "resolved_oss": 40.8,
-            "date": "2025-05-22",
+            "date": "2025-05-12",
             "logs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/logs",
             "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs",
                 "checked": false,
             "tags": [
                 "Open Source Tool: Verilator",
-                "Commercial Tool: Xcellium",
-                "Model: claude-4-sonnet-20250514",
+                "Commercial Tool: VCS",
+                "Model: o4-mini",
                 "Org: MS",
                 "Evaluation style: agentic",
                 "Single turn: false"
@@ -91,21 +91,21 @@
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"
             ],
             "site": "https://aws.amazon.com/q/developer/",
-            "folder": "20250522_amazon-q-developer-agent-20250405-dev",
-            "cost": 1000,
+            "folder": "20250522_amazon-q-developer-agent-20250405-dev0",
+            "cost": 7200,
             "resolved_full": 37.1,
             "resolved_oss": 70.8,
-            "date": "2025-05-22",
+            "date": "2025-05-27",
             "logs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/logs",
             "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs",
                 "checked": false,
             "tags": [
                 "Open Source Tool: Verilator",
-                "Commercial Tool: Xcelium",
-                "Model: claude-4-sonnet-20250514",
-                "Org: MS",
-                "Evaluation style: agentic",
-                "Single turn: false"
+                "Commercial Tool: VCS",
+                "Model: gpt-4o-mini",
+                "Org: AWS",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
             ],
             "warning": null
         },
@@ -114,7 +114,7 @@
             "logo": [
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"
             ],
-            "site": "https://aws.amazon.com/q/developer/",
+            "site": "https://si2.org/about",
             "folder": "20250522_amazon-q-developer-agent-20250405-dev",
             "cost": 1000,
             "resolved_full": 39.1,
@@ -125,8 +125,8 @@
                 "checked": false,
             "tags": [
                 "Open Source Tool: Icarus",
-                "Commercial Tool: Xcellium",
-                "Model: claude-4-sonnet-20250514",
+                "Commercial Tool: Xcelium",
+                "Model: o4-mini",
                 "Org: Google",
                 "Evaluation style: agentic",
                 "Single turn: false"
