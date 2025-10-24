@@ -30,7 +30,7 @@
         {
             "name": "Agent grey (v20250405-dev)",
             "logo": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"
+                "./img/Claude_AI_symbol.svg"
             ],
             "site": "https://si2.org",
             "folder": "20250522_amazon-q-developer-agent-20250405-dev",
@@ -59,7 +59,7 @@
         {
             "name": "Agent Orange (v20250405-dev)",
             "logo": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"
+                "./img/OpenAI_logo_symbol.png"
             ],
             "site": "https://si2.org/programs",
             "folder": "20250522_amazon-q-developer-agent-20250405-dev",
@@ -88,7 +88,7 @@
         {
             "name": "Agent White (v20250405-dev)",
             "logo": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"
+                "./img/OpenAI_logo_symbol.png"
             ],
             "site": "https://aws.amazon.com/q/developer/",
             "folder": "20250522_amazon-q-developer-agent-20250405-dev0",
@@ -112,7 +112,7 @@
         {
             "name": "Developer Agent (v20250405-dev)",
             "logo": [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"
+                "./img/OpenAI_logo_symbol.png"
             ],
             "site": "https://si2.org/about",
             "folder": "20250522_amazon-q-developer-agent-20250405-dev",
