@@ -57,28 +57,52 @@
         "name": "code-comprehension",
         "results": [
         {
-            "name": "Agent Orange (v20250405-dev)",
+            "name": "o4-mini ",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
             ],
-            "site": "https://si2.org/programs",
-            "folder": "20250522_amazon-q-developer-agent-20250405-dev",
-            "cost": 1060,
-            "resolved_full": 37.1,
-            "resolved_oss": 40.8,
-            "date": "2025-05-12",
-            "logs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/logs",
-            "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs",
-                "checked": false,
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0,
+            "resolved_full": 47.29,
+            "resolved_oss": 47.29,
+            "date": "2025-10-27",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
             "tags": [
-                "Open Source Tool: Verilator",
-                "Commercial Tool: VCS",
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
                 "Model: o4-mini",
-                "Org: MS",
-                "Evaluation style: agentic",
-                "Single turn: false"
+                "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
             ],
-            "warning": "There were some warnings!  See the log files."
+            "warning": null
+        },
+        {
+            "name": "gpt-4o-mini",
+            "logo": [
+                "./img/OpenAI_logo_symbol.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0,
+            "resolved_full": 44.67,
+            "resolved_oss": 44.67,
+            "date": "2025-10-21",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gpt-4o-mini",
+                "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
         }
       ]
     },
@@ -129,6 +153,30 @@
                 "Model: o4-mini",
                 "Org: Google",
                 "Evaluation style: agentic",
+                "Single turn: false"
+            ],
+            "warning": null
+        },
+                {
+            "name": "Developer Agent (v20250405-dev)",
+            "logo": [
+                "./img/Claude_AI_symbol.svg"
+            ],
+            "site": "https://si2.org/about",
+            "folder": "20250522_amazon-q-developer-agent-20250405-dev",
+            "cost": 1000,
+            "resolved_full": 25.1,
+            "resolved_oss": 42.7,
+            "date": "2025-05-22",
+            "logs": "",
+            "trajs": "s3://swe-bench-experiments/test/20250522_amazon-q-developer-agent-20250405-dev/trajs",
+                "checked": false,
+            "tags": [
+                "Open Source Tool: Verilator",
+                "Commercial Tool: Xcelium",
+                "Model: o4-mini",
+                "Org: TestOrg",
+                "Evaluation style: non--agentic",
                 "Single turn: false"
             ],
             "warning": null
