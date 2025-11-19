@@ -39,6 +39,7 @@ LEADERBOARDS_SCHEMA = {
                                 "date": {"type": "string"},
                                 "logs": {"type": "string"},
                                 "trajs": {"type": "string"},
+                                "release": {"type": "string"},
                                 "checked": {"type": "boolean"},
                                 "tags": {
                                     "type": "array",

@@ -16,7 +16,8 @@
             "date": "2025-11-30",
             "logs": "",
             "trajs": "",
-                "checked": true,
+            "checked": true,
+            "release": "1.0.2",
             "tags": [
                 "Open Source Tool: Icarus",
                 "Commercial Tool: Xcelium",
@@ -40,7 +41,8 @@
             "date": "2025-11-30",
             "logs": "",
             "trajs": "",
-                "checked": true,
+            "checked": true,
+            "release": "1.0.2",
             "tags": [
                 "Open Source Tool: Icarus",
                 "Commercial Tool: Xcelium",
@@ -50,7 +52,33 @@
                 "Single turn: true"
             ],
             "warning": null
+        },
+        {
+            "name": "Meta-Llama-3-1-405B-Instruct",
+            "logo": [
+                "./img/llama.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0,
+            "resolved_full": 21.36,
+            "resolved_oss": 28.43,
+            "date": "2025-11-18",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: Meta-Llama-3-1-405B-Instruct",
+                "Org: Meta",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
         }
+
       ]
     },
     {
@@ -70,6 +98,7 @@
             "logs": "",
             "trajs": "",
             "checked": true,
+            "release": "1.0.2",
             "tags": [
                 "Open Source Tool: N/A",
                 "Commercial Tool: N/A",
@@ -94,11 +123,37 @@
             "logs": "",
             "trajs": "",
             "checked": true,
+            "release": "1.0.2",
             "tags": [
                 "Open Source Tool: N/A",
                 "Commercial Tool: N/A",
                 "Model: gpt-4o-mini",
                 "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Meta-Llama-3-1-405B-Instruct",
+            "logo": [
+                "./img/llama.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0,
+            "resolved_full": 56.82,
+            "resolved_oss": 56.82,
+            "date": "2025-11-18",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: Meta-Llama-3-1-405B-Instruct",
+                "Org: Meta",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
