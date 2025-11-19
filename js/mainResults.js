@@ -48,7 +48,7 @@ function sortItems(a, b, field, direction) {
             case 'site':
                 return item[field] ? 1 : 0;
             case 'release':
-                return (item['mini-swe-agent_version'] || '').toLowerCase();
+                return item.release || '';
             default:
                 return '';
         }
@@ -120,7 +120,7 @@ function renderLeaderboardTable(leaderboard) {
                                     <td>
                                         <div class="flex items-center gap-1">
                                             <div class="model-badges">
-                                                ${item.checked ? '<span title="The agent run was performed by or directly verified by the LBC-bench team">✅</span>' : ''}
+                                                ${item.checked ? '<span title="The agent run was performed by or directly verified by Si2">✅</span>' : ''}
                                             </div>
                                             <span class="model-name font-mono fw-medium">${item.name}</span>
                                         </div>
@@ -145,8 +145,10 @@ function renderLeaderboardTable(leaderboard) {
                                     <td class="centered-text text-center">
                                         ${item.site ? `<a href="${item.site}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>` : '<span class="text-muted">-</span>'}
                                     </td>
-                                    <td><span class="text-muted font-mono">-</span></td>
-                                </tr>
+                                    <td class="centered-text text-center">
+                                        ${item.release ? `<span class="text-success">${item.release}</span>` : '<span class="text-muted">-</span>'}
+                                    </td>                         
+                                    </tr>
                             `).join('')}
                         <tr class="no-results" style="display: none;">
                             <td colspan="10" class="text-center">
