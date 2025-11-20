@@ -69,8 +69,8 @@
             "checked": true,
             "release": "1.0.2",
             "tags": [
-                "Open Source Tool: N/A",
-                "Commercial Tool: N/A",
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
                 "Model: Meta-Llama-3-1-405B-Instruct",
                 "Org: Meta",
                 "Evaluation style: non-agentic",
