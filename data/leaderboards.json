@@ -77,8 +77,32 @@
                 "Single turn: true"
             ],
             "warning": null
+        },
+        {
+            "name": "Llama-3-3-70B-Instruct",
+            "logo": [
+                "./img/llama.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0,
+            "resolved_full": 16.64,
+            "resolved_oss": 23.81,
+            "date": "2025-11-21",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: Llama-3-3-70B-Instruct",
+                "Org: Meta",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
         }
-
       ]
     },
     {
@@ -153,6 +177,31 @@
                 "Open Source Tool: N/A",
                 "Commercial Tool: N/A",
                 "Model: Meta-Llama-3-1-405B-Instruct",
+                "Org: Meta",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Llama-3.3-70B-Instruct",
+            "logo": [
+                "./img/llama.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0,
+            "resolved_full": 62.2,
+            "resolved_oss": 62.2,
+            "date": "2025-11-21",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: Llama-3-3-70B-Instruct",
                 "Org: Meta",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
