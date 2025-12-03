@@ -133,9 +133,6 @@ def main() -> None:
     # load data
     with open(ROOT / "data/leaderboards.json", "r") as f:
         leaderboards = json.load(f)
-    with open(ROOT / "data/press.json", "r") as f:
-        press = json.load(f)
-        press = sorted(press, key=lambda x: x["date"], reverse=True)
     
     # Collect tags per leaderboard and global tags
     leaderboard_tags = {}
@@ -162,7 +159,6 @@ def main() -> None:
         html = tpl.render(
             title="LBC-bench", 
             leaderboards=leaderboards["leaderboards"] if isinstance(leaderboards, dict) else leaderboards,
-            press=press,
             all_tags=all_tags,  # Keep for backward compatibility
             leaderboard_tags=leaderboard_tags,  # New per-leaderboard tags
         )

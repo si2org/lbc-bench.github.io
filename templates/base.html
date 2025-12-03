@@ -6,6 +6,18 @@
     <title>{% block title %}LBC-bench{% endblock %}</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <script>
+      // Initialize theme immediately to prevent flash
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+          document.documentElement.classList.add('dark-mode');
+        }
+      })();
+    </script>
+    
     {% block head_extra %}{% endblock %}
 </head>
 <body>
@@ -23,9 +35,9 @@
                         &copy; 2025 LBC-bench Team. All rights reserved.
                     </div>
                     <div class="footer-links">
-                        <a href="#" target="_blank">GitHub</a>
-                        <a href="#" target="_blank">HuggingFace</a>
-                        <a href="#" target="_blank">Paper</a>
+                        <a href="https://github.com/si2org/lbc-bench.github.io" target="_blank">GitHub</a>
+                        <a href="https://huggingface.co/datasets/nvidia/cvdp-benchmark-dataset" target="_blank">HuggingFace</a>
+                        <a href="https://arxiv.org/pdf/2506.14074" target="_blank">Paper</a>
                     </div>
                 </div>
             </div>
