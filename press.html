@@ -6,6 +6,18 @@
     <title>SWE-bench Press</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <script>
+      // Initialize theme immediately to prevent flash
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+          document.documentElement.classList.add('dark-mode');
+        }
+      })();
+    </script>
+    
     
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -34,29 +46,20 @@
             <li><a href="code_comprehension.html" class="nav-link" data-page="lite">Code Comprehension</a></li>
             <li><a href="context_heavy.html" class="nav-link" data-page="docs">Context Heavy</a></li>
 
-            <li class="nav-section-title">About</li>
-            <li><a href="https://arxiv.org/pdf/2506.14074" class="nav-link" data-page="paper">Paper <i class="fas fa-external-link-alt"></i></a></li>
-            <li><a href="https://github.com/NVlabs/cvdp_benchmark" class="nav-link">CVDP Benchmarks GitHub</a></li>
-            <li><a href="https://huggingface.co/datasets/nvidia/cvdp-benchmark-dataset" class="nav-link">CVDP Benchmarks Hugging Face</a></li>
-            <li><a href="https://www.businesswire.com/news/home/20250806010450/en/Si2-Announces-Creation-of-the-Si2-LLM-Benchmarking-Coalition?utm_campaign=shareaholic&utm_medium=linkedin&utm_source=socialnetwork" class="nav-link">Press</a></li>
+            <li class="nav-section-title">About <i class="fas fa-external-link-alt"></i></li>
+            <li><a href="https://arxiv.org/pdf/2506.14074" class="nav-link" target="_blank">Paper </a></li>
+            <li><a href="https://github.com/NVlabs/cvdp_benchmark" class="nav-link" target="_blank">CVDP Benchmarks GitHub</a></li>
+            <li><a href="https://huggingface.co/datasets/nvidia/cvdp-benchmark-dataset" class="nav-link" target="_blank">CVDP Benchmarks Hugging Face</a></li>
+            <li><a href="https://www.businesswire.com/news/home/20250806010450/en/Si2-Announces-Creation-of-the-Si2-LLM-Benchmarking-Coalition" class="nav-link" target="_blank">
+                Press</a>
+            </li>
         </ul>
     </nav>
     <div class="sidebar-footer">
-        <a href="#" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/si2org/lbc-bench.github.io" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github"></i>
         </a>
         &nbsp;
-        <a href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-youtube"></i>
-        </a>
-        &nbsp;
-        <a href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-twitter"></i>
-        </a>
-        &nbsp;
-        <a href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-slack"></i>
-        </a>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
             <i class="fas fa-moon"></i>
         </button>
@@ -74,156 +77,6 @@
 
     <section class="container">
         
-            <!-- <div class="content-section"> -->
-                <p>
-                    2025-05-21 &bull; PyTorch &bull;
-                    <a href="https://www.youtube.com/watch?v=yAQw77juYSg" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-video"></i>
-                        PyTorch Expert Exchange: Towards Autonomous Language Model Systems
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2025-05-08 &bull; MIT Technology Review &bull;
-                    <a href="https://www.technologyreview.com/2025/05/08/1116192/how-to-build-a-better-ai-benchmark/" target="_blank" rel="noopener noreferrer">
-                        
-                        How to build a better AI benchmark
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2025-04-17 &bull; Databricks &bull;
-                    <a href="https://www.youtube.com/watch?v=LgONGe838D0" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-video"></i>
-                        SWE bench &amp; SWE agent | Data Brew | Episode 44
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2025-04-10 &bull; TechCrunch &bull;
-                    <a href="https://techcrunch.com/2025/04/10/ai-models-still-struggle-to-debug-software-microsoft-study-shows/" target="_blank" rel="noopener noreferrer">
-                        
-                        AI models still struggle to debug software, Microsoft study shows
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2025-01-13 &bull; Jay Alammar &bull;
-                    <a href="https://www.youtube.com/watch?v=bivZWNQHRfE&amp;pp=ygUJc3dlLWJlbmNo" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-video"></i>
-                        SWE-Bench authors reflect on the state of LLM agents at Neurips 2024
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2025-01-06 &bull; Anthropic &bull;
-                    <a href="https://www.anthropic.com/engineering/swe-bench-sonnet" target="_blank" rel="noopener noreferrer">
-                        
-                        Raising the bar on SWE-bench Verified with Claude 3.5 Sonnet
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2024-10-30 &bull; Weaviate Podcast &bull;
-                    <a href="https://www.youtube.com/watch?v=8rwHAR4fsFg&amp;pp=ygUJc3dlLWJlbmNo" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-video"></i>
-                        SWE-bench with John Yang and Carlos E. Jimenez - Weaviate Podcast #107!
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2024-08-15 &bull; Weights &amp; Biases &bull;
-                    <a href="https://www.youtube.com/watch?v=d9gcXpiiDao" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-video"></i>
-                        NeurIPS Hacker Cup AI: SWEAgent
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2024-07-18 &bull; Wired &bull;
-                    <a href="https://link.wired.com/public/36091943" target="_blank" rel="noopener noreferrer">
-                        
-                        I glimpsed the future of coding
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2024-07-18 &bull; Wired &bull;
-                    <a href="https://www.wired.com/ai-powered-coding/" target="_blank" rel="noopener noreferrer">
-                        
-                        The AI-Powered Future of Coding Is Near
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2024-04-10 &bull; DeepLearning.AI &bull;
-                    <a href="https://www.deeplearning.ai/the-batch/issue-244/" target="_blank" rel="noopener noreferrer">
-                        
-                        Autonomous Coding Agents, Instability at Stability AI, Mamba Mania, What Users Do With GenAI
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2024-04-05 &bull; Matthew Berman &bull;
-                    <a href="https://www.youtube.com/watch?v=9-JBHGlYEBI&amp;list=PLhjeIHf6kJlUTPdUDDh3rLbaBT7-uRwa0&amp;index=1&amp;pp=iAQB" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-video"></i>
-                        AI Agent Automatically Codes WITH TOOLS - SWE-Agent Tutorial
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2024-04-02 &bull; Ofir Press &bull;
-                    <a href="https://www.youtube.com/watch?v=RJ6NN8Y-xok" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-video"></i>
-                        SWE-agent: A deep dive
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2024-04-01 &bull; Carlos E. Jimenez &bull;
-                    <a href="https://www.youtube.com/watch?v=CeMtJ4XObAM" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-video"></i>
-                        A First Look at SWE-agent
-                    </a>
-                </p>
-            <!-- </div> -->
-        
-            <!-- <div class="content-section"> -->
-                <p>
-                    2023-11-03 &bull; Rohan Alexander &bull;
-                    <a href="https://www.youtube.com/watch?v=DrLdvbkgmeA&amp;pp=ygUJc3dlLWJlbmNo" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-video"></i>
-                        John Yang - SWE-bench: Can Language Models Resolve Real-World GitHub Issues?
-                    </a>
-                </p>
-            <!-- </div> -->
-        
     </section>
 
         
@@ -234,9 +87,9 @@
                         &copy; 2025 LBC-bench Team. All rights reserved.
                     </div>
                     <div class="footer-links">
-                        <a href="#" target="_blank">GitHub</a>
-                        <a href="#" target="_blank">HuggingFace</a>
-                        <a href="#" target="_blank">Paper</a>
+                        <a href="https://github.com/si2org/lbc-bench.github.io" target="_blank">GitHub</a>
+                        <a href="https://huggingface.co/datasets/nvidia/cvdp-benchmark-dataset" target="_blank">HuggingFace</a>
+                        <a href="https://arxiv.org/pdf/2506.14074" target="_blank">Paper</a>
                     </div>
                 </div>
             </div>

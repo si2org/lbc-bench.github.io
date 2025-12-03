@@ -6,6 +6,18 @@
     <title>SWE-bench</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <script>
+      // Initialize theme immediately to prevent flash
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+          document.documentElement.classList.add('dark-mode');
+        }
+      })();
+    </script>
+    
     
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -34,29 +46,20 @@
             <li><a href="code_comprehension.html" class="nav-link" data-page="lite">Code Comprehension</a></li>
             <li><a href="context_heavy.html" class="nav-link" data-page="docs">Context Heavy</a></li>
 
-            <li class="nav-section-title">About</li>
-            <li><a href="https://arxiv.org/pdf/2506.14074" class="nav-link" data-page="paper">Paper <i class="fas fa-external-link-alt"></i></a></li>
-            <li><a href="https://github.com/NVlabs/cvdp_benchmark" class="nav-link">CVDP Benchmarks GitHub</a></li>
-            <li><a href="https://huggingface.co/datasets/nvidia/cvdp-benchmark-dataset" class="nav-link">CVDP Benchmarks Hugging Face</a></li>
-            <li><a href="https://www.businesswire.com/news/home/20250806010450/en/Si2-Announces-Creation-of-the-Si2-LLM-Benchmarking-Coalition?utm_campaign=shareaholic&utm_medium=linkedin&utm_source=socialnetwork" class="nav-link">Press</a></li>
+            <li class="nav-section-title">About <i class="fas fa-external-link-alt"></i></li>
+            <li><a href="https://arxiv.org/pdf/2506.14074" class="nav-link" target="_blank">Paper </a></li>
+            <li><a href="https://github.com/NVlabs/cvdp_benchmark" class="nav-link" target="_blank">CVDP Benchmarks GitHub</a></li>
+            <li><a href="https://huggingface.co/datasets/nvidia/cvdp-benchmark-dataset" class="nav-link" target="_blank">CVDP Benchmarks Hugging Face</a></li>
+            <li><a href="https://www.businesswire.com/news/home/20250806010450/en/Si2-Announces-Creation-of-the-Si2-LLM-Benchmarking-Coalition" class="nav-link" target="_blank">
+                Press</a>
+            </li>
         </ul>
     </nav>
     <div class="sidebar-footer">
-        <a href="#" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/si2org/lbc-bench.github.io" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github"></i>
         </a>
         &nbsp;
-        <a href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-youtube"></i>
-        </a>
-        &nbsp;
-        <a href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-twitter"></i>
-        </a>
-        &nbsp;
-        <a href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-slack"></i>
-        </a>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
             <i class="fas fa-moon"></i>
         </button>
@@ -156,9 +159,9 @@
                         &copy; 2025 LBC-bench Team. All rights reserved.
                     </div>
                     <div class="footer-links">
-                        <a href="#" target="_blank">GitHub</a>
-                        <a href="#" target="_blank">HuggingFace</a>
-                        <a href="#" target="_blank">Paper</a>
+                        <a href="https://github.com/si2org/lbc-bench.github.io" target="_blank">GitHub</a>
+                        <a href="https://huggingface.co/datasets/nvidia/cvdp-benchmark-dataset" target="_blank">HuggingFace</a>
+                        <a href="https://arxiv.org/pdf/2506.14074" target="_blank">Paper</a>
                     </div>
                 </div>
             </div>
