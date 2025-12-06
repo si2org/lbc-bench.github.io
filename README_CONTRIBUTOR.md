@@ -44,7 +44,7 @@ Add your entry to the `results` array:
     "logo": ["./img/model-logo.png"],
     "site": "https://your-organization-site",
     "folder": "",
-    "cost": 0.00,
+    "cost": 0.07,
     "resolved_full": 29.46,
     "resolved_oss": 40.81,
     "date": "2025-11-30",
@@ -70,7 +70,7 @@ Add your entry to the `results` array:
 | `name` | Model name | Required |
 | `logo` | Logo path array | Use existing or add new to `./img/` |
 | `site` | Organization URL | Who ran the benchmark |
-| `cost` | Average cost per test | Numeric value |
+| `cost` | Average cost per test in USD | Numeric value |
 | `resolved_full` | Pass rate (all datasets, OSS and commercial simulators) | Percentage |
 | `resolved_oss` | Pass rate (OSS simulator only) | Percentage |
 | `date` | Run date | Format: YYYY-MM-DD |
@@ -90,7 +90,7 @@ python -m json.tool data/leaderboards.json
 ```bash
 make build && make serve
 ```
-View at: http://127.0.0.1:8000/
+View at: http://localhost:8000
 
 Verify your entry appears correctly in the leaderboard.
 
