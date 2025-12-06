@@ -102,7 +102,7 @@ function renderLeaderboardTable(leaderboard) {
                             <th class="sortable" data-sort="resolved_full">% Resolved Full</th>
                             <th class="sortable" data-sort="resolved_oss">% Resolved OSS</th>
                             <th class="sortable" data-sort="org">Org</th>
-                            <th class="sortable" data-sort="cost">Cost</th>
+                            <th class="sortable" data-sort="cost">Avg. $</th>
                             <th class="sortable" data-sort="date">Date</th>
                             <th class="sortable" data-sort="logs">Logs</th>
                             <th class="sortable" data-sort="trajs">Trajs</th>
