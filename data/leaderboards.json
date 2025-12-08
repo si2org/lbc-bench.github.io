@@ -102,6 +102,56 @@
                 "Single turn: true"
             ],
             "warning": null
+        },
+        {
+            "name": "claude-sonnet-4-5-20250929",
+            "logo": [
+                "./img/Claude_AI_symbol.svg"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.26,
+            "resolved_full": 33.50,
+            "resolved_oss": 46.50,
+            "date": "2025-12-06",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: claude-sonnet-4-5-20250929",
+                "Org: Anthropic",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "claude-sonnet-4-20250514",
+            "logo": [
+                "./img/Claude_AI_symbol.svg"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.21,
+            "resolved_full": 32.11,
+            "resolved_oss": 44.57,
+            "date": "2025-12-08",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: claude-sonnet-4-20250514",
+                "Org: Anthropic",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
         }
       ]
     },
@@ -203,6 +253,56 @@
                 "Commercial Tool: N/A",
                 "Model: Llama-3-3-70B-Instruct",
                 "Org: Meta",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "claude-sonnet-4-5-20250929",
+            "logo": [
+                "./img/Claude_AI_symbol.svg"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.26,
+            "resolved_full": 67.22,
+            "resolved_oss": 67.22,
+            "date": "2025-12-06",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: claude-sonnet-4-5-20250929",
+                "Org: Anthropic",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "claude-sonnet-4-20250514",
+            "logo": [
+                "./img/Claude_AI_symbol.svg"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.21,
+            "resolved_full": 70.83,
+            "resolved_oss": 70.83,
+            "date": "2025-12-08",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: claude-sonnet-4-20250514",
+                "Org: Anthropic",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
