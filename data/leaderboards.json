@@ -119,8 +119,8 @@
             "checked": true,
             "release": "1.0.2",
             "tags": [
-                "Open Source Tool: N/A",
-                "Commercial Tool: N/A",
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
                 "Model: claude-sonnet-4-5-20250929",
                 "Org: Anthropic",
                 "Evaluation style: non-agentic",
@@ -144,8 +144,8 @@
             "checked": true,
             "release": "1.0.2",
             "tags": [
-                "Open Source Tool: N/A",
-                "Commercial Tool: N/A",
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
                 "Model: claude-sonnet-4-20250514",
                 "Org: Anthropic",
                 "Evaluation style: non-agentic",
