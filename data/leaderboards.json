@@ -152,6 +152,31 @@
                 "Single turn: true"
             ],
             "warning": null
+        },
+        {
+            "name": "gpt-5-mini",
+            "logo": [
+                "./img/OpenAI_logo_symbol.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.04,
+            "resolved_full": 30.56,
+            "resolved_oss": 21.14,
+            "date": "2026-01-23",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: gpt-5-mini",
+                "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
         }
       ]
     },
@@ -303,6 +328,31 @@
                 "Commercial Tool: N/A",
                 "Model: claude-sonnet-4-20250514",
                 "Org: Anthropic",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "gpt-5-mini",
+            "logo": [
+                "./img/OpenAI_logo_symbol.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.04,
+            "resolved_full": 72.0,
+            "resolved_oss": 72.0,
+            "date": "2026-01-23",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gpt-5-mini",
+                "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
