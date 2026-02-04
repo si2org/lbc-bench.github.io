@@ -177,6 +177,52 @@
                 "Single turn: true"
             ],
             "warning": null
+        },
+        {
+            "name": "Gemini 3 Pro Preview",
+            "logo": ["./img/gemini-color.png"],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.02,
+            "resolved_full": 0.00,
+            "resolved_oss": 53.31,
+            "date": "2026-02-04",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: N/A",
+                "Model: gemini-3-pro-preview",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Gemini 2.5 Pro",
+            "logo": ["./img/gemini-color.png"],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.10,
+            "resolved_full": 0.00,
+            "resolved_oss": 39.07,
+            "date": "2026-02-04",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: N/A",
+                "Model: gemini-2.5-pro",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
         }
       ]
     },
@@ -353,6 +399,52 @@
                 "Commercial Tool: N/A",
                 "Model: gpt-5-mini",
                 "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Gemini 3 Pro Preview",
+            "logo": ["./img/gemini-color.png"],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.01,
+            "resolved_full": 76.98,
+            "resolved_oss": 76.98,
+            "date": "2026-02-04",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gemini-3-pro-preview",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Gemini 2.5 Pro",
+            "logo": ["./img/gemini-color.png"],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.01,
+            "resolved_full": 75.38,
+            "resolved_oss": 75.38,
+            "date": "2026-02-04",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gemini-2.5-pro",
+                "Org: Google",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
