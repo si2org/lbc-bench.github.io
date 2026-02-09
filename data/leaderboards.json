@@ -177,6 +177,31 @@
                 "Single turn: true"
             ],
             "warning": null
+        },
+        {
+            "name": "gpt-5.2 medium reasoning",
+            "logo": [
+                "./img/OpenAI_logo_symbol.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.33,
+            "resolved_full": 28.84,
+            "resolved_oss": 42.18,
+            "date": "2026-02-09",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: gpt-5.2 medium reasoning",
+                "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
         }
       ]
     },
@@ -352,6 +377,31 @@
                 "Open Source Tool: N/A",
                 "Commercial Tool: N/A",
                 "Model: gpt-5-mini",
+                "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "gpt-5.2 medium reasoning",
+            "logo": [
+                "./img/OpenAI_logo_symbol.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.33,
+            "resolved_full": 74.57,
+            "resolved_oss": 74.57,
+            "date": "2026-02-09",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gpt-5.2 medium reasoning",
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
