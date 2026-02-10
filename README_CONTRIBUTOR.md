@@ -71,14 +71,17 @@ Add your entry to the `results` array:
 | `logo` | Logo path array | Use existing or add new to `./img/` |
 | `site` | Organization URL | Who ran the benchmark |
 | `cost` | Average cost per test in USD | Numeric value |
-| `resolved_full` | Pass rate (all datasets, OSS and commercial simulators) | Percentage |
-| `resolved_oss` | Pass rate (OSS simulator only) | Percentage |
+| `resolved_full` | Pass rate<sup>&dagger;</sup> | Percentage - <br>`null` if commercial simulator unavailable |
+| `resolved_oss` | Pass rate<sup>&Dagger;</sup> | Percentage |
 | `date` | Run date | Format: YYYY-MM-DD |
 | `checked` | Validation status | Set to `false` for new submissions |
 | `release` | Benchmark version | Current release number |
-| `tags` |  properties (filterable) | Follow format shown above |
+| `tags` |  Properties (filterable) | Follow format shown above |
 | `folder`, `logs`, `trajs` | Future use | Leave as empty strings for now |
 | `warning` | Future use | Set to `null` for now |
+
+<sup>†</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) and commercial simulator dataset run.<br>
+<sup>‡</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) dataset run.<br>
 
 ### 5. Validate JSON Syntax
 Ensure your JSON is valid. Use any JSON validator or:

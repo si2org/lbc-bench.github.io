@@ -82,6 +82,14 @@ function getDefaultSortDirection(field) {
     return textFields.includes(field) ? 'asc' : 'desc';
 }
 
+const cleanNum = (val) => {
+    // If it's null, undefined, the string "NaN", or mathematically NaN
+    if (val === null || val === undefined || val === "NaN" || isNaN(parseFloat(val))) {
+        return "-";
+    }
+    return parseFloat(val).toFixed(2);
+};
+
 function renderLeaderboardTable(leaderboard) {
     const container = document.getElementById('leaderboard-container');
     // const isBashOnly = leaderboard.name.toLowerCase() === 'code-generation-limited-context';
@@ -125,17 +133,17 @@ function renderLeaderboardTable(leaderboard) {
                                             <span class="model-name font-mono fw-medium">${item.name}</span>
                                         </div>
                                     </td>
-                                    <td><span class="number fw-medium text-primary">${parseFloat(item.resolved_full).toFixed(2)}</span></td>
-                                    <td><span class="number fw-medium text-primary">${parseFloat(item.resolved_oss).toFixed(2)}</span></td>
-                                    <td>
+                                    <td class="centered-text text-center"><span class="number fw-medium text-primary">${cleanNum(item.resolved_full)}</span></td>
+                                    <td class="centered-text text-center"><span class="number fw-medium text-primary">${parseFloat(item.resolved_oss).toFixed(2)}</span></td>
+                                    <td class="centered-text text-center">
                                         ${item.logo && item.logo.length > 0 ? `
                                             <div style="display: flex; align-items: center;">
                                                 ${item.logo.map(logoUrl => `<img src="${logoUrl}" style="height: 1.5em;" />`).join('')}
                                             </div>
                                         ` : '-'}
                                     </td>
-                                    <td><span class="number fw-medium text-primary">${parseFloat(item.cost).toFixed(2)}</span></td>
-                                    <td><span class="label-date text-muted">${item.date}</span></td>
+                                    <td class="centered-text text-center"><span class="number fw-medium text-primary">${parseFloat(item.cost).toFixed(2)}</span></td>
+                                    <td class="centered-text text-center"><span class="label-date text-muted">${item.date}</span></td>
                                     <td class="centered-text text-center">
                                         ${item.logs ? '<span class="text-success">✓</span>' : '<span class="text-muted">-</span>'}
                                     </td>
