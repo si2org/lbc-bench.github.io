@@ -204,6 +204,31 @@
             "warning": null
         },
         {
+            "name": "gpt-5.2 high reasoning",
+            "logo": [
+                "./img/OpenAI_logo_symbol.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.56,
+            "resolved_full": 31.22,
+            "resolved_oss": 44.62,
+            "date": "2026-02-19",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: gpt-5.2 high reasoning",
+                "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
             "name": "gpt-5.2 low reasoning",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -457,8 +482,32 @@
                 "Single turn: true"
             ],
             "warning": null
-        }
-      ]
+        },
+        {
+            "name": "gpt-5.2 high reasoning",
+            "logo": [
+                "./img/OpenAI_logo_symbol.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.56,
+            "resolved_full": 75.46,
+            "resolved_oss": 75.46,
+            "date": "2026-02-19",
+            "logs": "",
+            "trajs": "",
+            "checked": true,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gpt-5.2 high reasoning",
+                "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        }      ]
     },
     {
         "name": "code-generation-heavy-context",
