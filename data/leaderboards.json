@@ -252,7 +252,182 @@
                 "Single turn: true"
             ],
             "warning": null
-        }        
+        },        
+        {
+            "name": "Gemini 3.1 Pro Preview",
+            "logo": [
+                "./img/gemini-color.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": null,
+            "resolved_oss": 56.41,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: gemini-3.1-pro-preview",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Claude Opus 4.6",
+            "logo": [
+                "./img/Claude_AI_symbol.svg"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": null,
+            "resolved_oss": 47.11,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: claude-opus-4.6",
+                "Org: Anthropic",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Claude Sonnet 4.6",
+            "logo": [
+                "./img/Claude_AI_symbol.svg"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": null,
+            "resolved_oss": 44.77,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: claude-sonnet-4.6",
+                "Org: Anthropic",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "GPT-5.3 Codex",
+            "logo": [
+                "./img/OpenAI_logo_symbol.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": null,
+            "resolved_oss": 48.12,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: gpt-5.3-codex",
+                "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Gemini 2.5 Pro",
+            "logo": [
+                "./img/gemini-color.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": null,
+            "resolved_oss": 33.86,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: gemini-2.5-pro",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Kimi K2.5",
+            "logo": [
+                "/img/Kimi-logo-2025.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": null,
+            "resolved_oss": 44.25,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: kimi-k2.5",
+                "Org: Moonshot AI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "MiniMax M2.5",
+            "logo": [
+                "./img/MiniMax.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": null,
+            "resolved_oss": 30.84,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: Xcelium",
+                "Model: minimax-m2.5",
+                "Org: MiniMax",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        }
       ]
     },
     {
@@ -507,7 +682,133 @@
                 "Single turn: true"
             ],
             "warning": null
-        }      ]
+        },
+        {
+            "name": "Claude Opus 4.6",
+            "logo": [
+                "./img/Claude_AI_symbol.svg"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": 29.21,
+            "resolved_oss": 29.21,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: claude-opus-4.6",
+                "Org: Anthropic",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },        
+        {
+            "name": "Claude Sonnet 4.6",
+            "logo": [
+                "./img/Claude_AI_symbol.svg"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": 30.70,
+            "resolved_oss": 30.70,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: claude-sonnet-4.6",
+                "Org: Anthropic",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "GPT-5.3 Codex",
+            "logo": [
+                "./img/OpenAI_logo_symbol.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": 30.13,
+            "resolved_oss": 30.13,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gpt-5.3-codex",
+                "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Gemini 2.5 Pro",
+            "logo": [
+                "./img/gemini-color.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": 32.65,
+            "resolved_oss": 32.65,
+            "date": "2026-03-15",
+            "logs": "", 
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gemini-2.5-pro",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },              
+        {
+            "name": "Gemini 3.1 Pro Preview",
+            "logo": [
+                "./img/gemini-color.png"
+            ],
+            "site": "https://si2.org",
+            "folder": "",
+            "cost": 0.00,
+            "resolved_full": 34.99,
+            "resolved_oss": 34.99,
+            "date": "2026-03-15",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.0.2",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gemini-3.1-pro-preview",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        }
+    ]
     },
     {
         "name": "code-generation-heavy-context",
