@@ -112,6 +112,7 @@ function renderLeaderboardTable(leaderboard) {
                             <th class="sortable" data-sort="org">Org</th>
                             <th class="sortable" data-sort="cost">Avg. $</th>
                             <th class="sortable" data-sort="date">Date</th>
+                            <th class="sortable" data-sort="trajs">Notes</th>
                             <th class="sortable" data-sort="logs">Logs</th>
                             <th class="sortable" data-sort="trajs">Trajs</th>
                             <th class="sortable" data-sort="site">Site</th>
@@ -144,6 +145,11 @@ function renderLeaderboardTable(leaderboard) {
                                     </td>
                                     <td class="centered-text text-center"><span class="number fw-medium text-primary">${cleanNum(item.cost)}</span></td>
                                     <td class="centered-text text-center"><span class="label-date text-muted">${item.date}</span></td>
+                                    <td class="centered-text text-center">
+                                        ${item.notes ? 
+                                            `<a href="#" data-popup-text="${item.notes}" onclick="openPopup(this); return false;">📝</a>`
+                                            : '<span class="text-muted">-</span>'}
+                                    </td>
                                     <td class="centered-text text-center">
                                         ${item.logs ? '<span class="text-success">✓</span>' : '<span class="text-muted">-</span>'}
                                     </td>
