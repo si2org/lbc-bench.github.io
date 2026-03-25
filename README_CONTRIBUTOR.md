@@ -70,7 +70,7 @@ Add your entry to the `results` array:
 | `name` | Model name | Required |
 | `logo` | Logo path array | Use existing or add new to `./img/` |
 | `site` | Organization URL | Who ran the benchmark |
-| `cost` | Average cost per test in USD | Numeric value |
+| `cost` | Average cost per test in USD | Numeric value - <br>`null` if cost unavailable |
 | `resolved_full` | Pass rate<sup>&dagger;</sup> | Percentage - <br>`null` if commercial simulator unavailable |
 | `resolved_oss` | Pass rate<sup>&Dagger;</sup> | Percentage |
 | `date` | Run date | Format: YYYY-MM-DD |
