@@ -142,7 +142,7 @@ function renderLeaderboardTable(leaderboard) {
                                             </div>
                                         ` : '-'}
                                     </td>
-                                    <td class="centered-text text-center"><span class="number fw-medium text-primary">${parseFloat(item.cost).toFixed(2)}</span></td>
+                                    <td class="centered-text text-center"><span class="number fw-medium text-primary">${cleanNum(item.cost)}</span></td>
                                     <td class="centered-text text-center"><span class="label-date text-muted">${item.date}</span></td>
                                     <td class="centered-text text-center">
                                         ${item.logs ? '<span class="text-success">✓</span>' : '<span class="text-muted">-</span>'}
