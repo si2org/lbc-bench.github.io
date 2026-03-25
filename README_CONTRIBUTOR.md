@@ -50,6 +50,7 @@ Add your entry to the `results` array:
     "date": "2025-11-30",
     "logs": "",
     "trajs": "",
+    "notes": "Tokens used: XXXX\nModel snapshot: XXXX",
     "checked": false,
     "release": "1.0.2",
     "tags": [
@@ -78,6 +79,7 @@ Add your entry to the `results` array:
 | `release` | Benchmark version | Current release number |
 | `tags` |  Properties (filterable) | Follow format shown above |
 | `folder`, `logs`, `trajs` | Future use | Leave as empty strings for now |
+| `notes` | Detailed run information | Token usage, runtime, model snapshot info, etc. Populating this field is **HIGHLY** recommended |
 | `warning` | Future use | Set to `null` for now |
 
 <sup>†</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) and commercial simulator dataset run.<br>
