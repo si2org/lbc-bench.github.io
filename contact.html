@@ -102,6 +102,23 @@
         </footer>
     </div>
 
+    <dialog id="popup" class="card">
+    <p id="popup-content" class="text-secondary" style="white-space: pre-line;"></p>
+    <form method="dialog" style="text-align: center;">
+        <button>Close</button>
+    </form>
+    </dialog>
+
+    <script>
+        function openPopup(el) {
+        const dialog = document.getElementById('popup');
+        const content = document.getElementById('popup-content');
+
+        content.textContent = el.dataset.popupText;
+        dialog.showModal();
+    }
+    </script>
+
     <!-- Common JS files -->
     <script src="js/mainResults.js"></script>
     <script src="js/citation.js"></script>
