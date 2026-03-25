@@ -33,7 +33,7 @@ LEADERBOARDS_SCHEMA = {
                                 },
                                 "site": {"type": "string"},
                                 "folder": {"type": "string"},
-                                "cost": {"type": "number"},
+                                "cost": {"type": ["number", "null"]},
                                 "resolved_full": {"type": ["number", "null"]},
                                 "resolved_oss": {"type": "number"},
                                 "date": {"type": "string"},
