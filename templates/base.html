@@ -44,6 +44,23 @@
         </footer>
     </div>
 
+    <dialog id="popup" class="card">
+    <p id="popup-content" class="text-secondary" style="white-space: pre-line;"></p>
+    <form method="dialog" style="text-align: center;">
+        <button>Close</button>
+    </form>
+    </dialog>
+
+    <script>
+        function openPopup(el) {
+        const dialog = document.getElementById('popup');
+        const content = document.getElementById('popup-content');
+
+        content.textContent = el.dataset.popupText;
+        dialog.showModal();
+    }
+    </script>
+
     <!-- Common JS files -->
     <script src="js/mainResults.js"></script>
     <script src="js/citation.js"></script>
@@ -59,14 +76,14 @@
             const storedTheme = localStorage.getItem('theme');
             
             if (storedTheme === 'dark' || (!storedTheme && prefersDarkScheme.matches)) {
-                document.body.classList.add('dark-mode');
+                document.documentElement.classList.add('dark-mode');
             }
             
             if (themeToggle) {
                 themeToggle.addEventListener('click', () => {
-                    document.body.classList.toggle('dark-mode');
+                    document.documentElement.classList.toggle('dark-mode');
                     
-                    const isDarkMode = document.body.classList.contains('dark-mode');
+                    const isDarkMode = document.documentElement.classList.contains('dark-mode');
                     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
                 });
             }
@@ -74,9 +91,9 @@
             prefersDarkScheme.addEventListener('change', (e) => {
                 if (!localStorage.getItem('theme')) {
                     if (e.matches) {
-                        document.body.classList.add('dark-mode');
+                        document.documentElement.classList.add('dark-mode');
                     } else {
-                        document.body.classList.remove('dark-mode');
+                        document.documentElement.classList.remove('dark-mode');
                     }
                 }
             });
