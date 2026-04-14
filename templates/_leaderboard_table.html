@@ -3,10 +3,7 @@
 {% endblock %}
 
 <div class="mb-2 leaderboard-header-container">
-    <div id="leaderboard-description-text">
-        <!-- Dynamic text will be inserted here -->
-    </div>
-    <div class="filter-controls-group border-top pt-2">
+    <div class="filter-controls-group pt-2">
         <div class="filter-title">Filters:</div>
         <div class="filter-buttons">
             <!-- Main Filters Dropdown -->
@@ -42,7 +39,7 @@
 
         <!-- Search -->
         <div class="leaderboard-search">
-            <input type="input" id="leaderboard-search-input" placeholder="Search..." />
+            <input type="text" class="form-control-sm" id="leaderboard-search-input" placeholder="Search..." />
         </div>
     </div>
 </div>
@@ -59,6 +56,3 @@
 <script type="application/json" id="leaderboard-tags-data">
     {{ leaderboard_tags | tojson }}
 </script>
-
-<div class="leaderboard-notes">
-</div>
