@@ -1,8 +1,8 @@
 /* Normalize (from vendors) */
 @import 'vendors/normalize.css';
 
-/* DM Sans Font */
-@import 'dmsans/dmsans.css';
+/* Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /**
  * Design tokens and CSS variables
@@ -83,7 +83,7 @@
   --table-border: var(--gray-200);
   
   /* Typography */
-  --font-primary: 'DM-Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   
   /* Sizes (in rem for better scaling) */
@@ -96,14 +96,14 @@
   --size-3xl: 3rem;     /* 48px */
   
   /* Font sizes */
-  --text-xs: 0.75rem;    /* 12px */
-  --text-sm: 0.875rem;   /* 14px */
-  --text-base: 1rem;     /* 16px */
-  --text-md: 1.125rem;   /* 18px */
-  --text-lg: 1.25rem;    /* 20px */
-  --text-xl: 1.5rem;     /* 24px */
-  --text-2xl: 1.875rem;  /* 30px */
-  --text-3xl: 2.25rem;   /* 36px */
+  --text-xs: 0.7rem;     /* 11.2px */
+  --text-sm: 0.825rem;   /* 13.2px */
+  --text-base: 0.95rem;  /* 15.2px */
+  --text-md: 1.05rem;    /* 16.8px */
+  --text-lg: 1.175rem;   /* 18.8px */
+  --text-xl: 1.4rem;     /* 22.4px */
+  --text-2xl: 1.75rem;   /* 28px */
+  --text-3xl: 2.1rem;    /* 33.6px */
   
   /* Line heights */
   --leading-tight: 1.2;

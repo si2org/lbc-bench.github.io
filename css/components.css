@@ -133,6 +133,23 @@ button:focus,
   color: var(--color-text);
 }
 
+.form-control-sm {
+  display: block;
+  width: 100%;
+  padding: 0.2rem 0.75rem;
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: color-mix(in srgb, var(--color-background), black 3%);
+  border: 2.0px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.dark-mode .form-control-sm {
+  background-color: var(--gray-800);
+}
+
 .form-control {
   display: block;
   width: 100%;
