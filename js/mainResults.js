@@ -125,6 +125,7 @@ function renderLeaderboardTable(leaderboard) {
                                     data-checked="${item.checked ? 'true' : 'false'}"
                                     data-tags="${item.tags ? item.tags.join(',') : ''}"
                                     data-name="${item.name}"
+                                    data-release="${item.release || ''}"
                                 >
                                     <td>
                                         <div class="flex items-center gap-1">
