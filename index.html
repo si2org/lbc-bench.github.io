@@ -129,12 +129,27 @@
             <div class="multiselect-container" id="tag-filters">
                 <button class="btn btn-sm btn-outline-secondary filter-toggle multiselect-toggle" type="button" title="Filter by tags">
                     <span class="multiselect-summary">All Tags</span>
-                    <span class="multiselect-icon">▼</span>
+                    <span class="multiselect-icon">+</span>
                 </button>
                 <form class="multiselect-form">
                     <div class="multiselect-dropdown">
                         <div class="multiselect-options" id="tag-options-container">
                             <!-- Tag options will be dynamically populated here -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Release Dropdown -->
+            <div class="multiselect-container" id="release-filters">
+                <button class="btn btn-sm btn-outline-secondary filter-toggle multiselect-toggle" type="button" title="Filter by release">
+                    <span class="multiselect-summary">All Releases</span>
+                    <span class="multiselect-icon">+</span>
+                </button>
+                <form class="multiselect-form">
+                    <div class="multiselect-dropdown">
+                        <div class="multiselect-options" id="release-options-container">
+                            <!-- Release options will be dynamically populated here -->
                         </div>
                     </div>
                 </form>
@@ -159,6 +174,10 @@
 
 <script type="application/json" id="leaderboard-tags-data">
     {"code-comprehension": ["Commercial Tool: N/A", "Evaluation style: non-agentic", "Model: Llama-3-3-70B-Instruct", "Model: Meta-Llama-3-1-405B-Instruct", "Model: claude-opus-4.6", "Model: claude-sonnet-4-20250514", "Model: claude-sonnet-4-5-20250929", "Model: claude-sonnet-4.6", "Model: gemini-2.5-pro", "Model: gemini-3.1-pro-preview", "Model: gpt-4o-mini", "Model: gpt-5-mini", "Model: gpt-5.2 high reasoning", "Model: gpt-5.2 low reasoning", "Model: gpt-5.2 medium reasoning", "Model: gpt-5.3-codex", "Model: kimi-k2.5", "Model: minimax-m2.5", "Model: o4-mini", "Open Source Tool: N/A", "Org: Anthropic", "Org: Google", "Org: Meta", "Org: MiniMax", "Org: Moonshot AI", "Org: OpenAI", "Single turn: true"], "code-generation-heavy-context": [], "code-generation-limited-context": ["Commercial Tool: N/A", "Commercial Tool: Xcelium", "Evaluation style: non-agentic", "Model: Llama-3-3-70B-Instruct", "Model: Meta-Llama-3-1-405B-Instruct", "Model: claude-opus-4.6", "Model: claude-sonnet-4-20250514", "Model: claude-sonnet-4-5-20250929", "Model: claude-sonnet-4.6", "Model: gemini-2.5-pro", "Model: gemini-3.1-pro-preview", "Model: gpt-4o-mini", "Model: gpt-5-mini", "Model: gpt-5.2 high reasoning", "Model: gpt-5.2 low reasoning", "Model: gpt-5.2 medium reasoning", "Model: gpt-5.3-codex", "Model: kimi-k2.5", "Model: minimax-m2.5", "Model: o4-mini", "Open Source Tool: Icarus", "Org: Anthropic", "Org: Google", "Org: Meta", "Org: MiniMax", "Org: Moonshot AI", "Org: OpenAI", "Single turn: true"]}
+</script>
+
+<script type="application/json" id="leaderboard-releases-data">
+    {"code-comprehension": ["1.0.2"], "code-generation-heavy-context": [], "code-generation-limited-context": ["1.0.2"]}
 </script>
         </div>
     </section>

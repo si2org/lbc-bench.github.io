@@ -250,6 +250,7 @@ const activeFilters = new Set(['os_system']);
 
 // Global data
 let leaderboardTagsData = {};
+let leaderboardReleasesData = {};
 
 // Function to load leaderboard tags data
 function loadLeaderboardTagsData() {
@@ -260,6 +261,17 @@ function loadLeaderboardTagsData() {
         }
     }
     return leaderboardTagsData;
+}
+
+// Function to load leaderboard releases data
+function loadLeaderboardReleasesData() {
+    if (Object.keys(leaderboardReleasesData).length === 0) {
+        const dataScript = document.getElementById('leaderboard-releases-data');
+        if (dataScript) {
+            leaderboardReleasesData = JSON.parse(dataScript.textContent);
+        }
+    }
+    return leaderboardReleasesData;
 }
 
 // Function to update tag dropdown based on active leaderboard
@@ -273,17 +285,31 @@ function updateTagsForLeaderboard(leaderboardName) {
     window.tagFiltersDropdown.rebuildOptions(leaderboardTags);
 }
 
-// Make function globally accessible
+// Function to update release dropdown based on active leaderboard
+function updateReleasesForLeaderboard(leaderboardName) {
+    if (!window.releaseFiltersDropdown) return;
+    
+    const releasesData = loadLeaderboardReleasesData();
+    const leaderboardReleases = releasesData[leaderboardName] || [];
+    
+    // Rebuild the release dropdown with leaderboard-specific releases
+    window.releaseFiltersDropdown.rebuildOptions(leaderboardReleases);
+}
+
+// Make functions globally accessible
 window.updateTagsForLeaderboard = updateTagsForLeaderboard;
+window.updateReleasesForLeaderboard = updateReleasesForLeaderboard;
 
 // Function to show/hide filter elements based on leaderboard type
 function updateFilterVisibility(leaderboardName) {
     // const mainFiltersContainer = document.getElementById('main-filters');
     const tagFiltersContainer = document.getElementById('tag-filters');
+    const releaseFiltersContainer = document.getElementById('release-filters');
     
     // Show all filters for all leaderboards - consistent interface
     // if (mainFiltersContainer) mainFiltersContainer.style.display = '';
     if (tagFiltersContainer) tagFiltersContainer.style.display = '';
+    if (releaseFiltersContainer) releaseFiltersContainer.style.display = '';
 }
 
 // Table Update Logic - Optimized for lazy loading
@@ -324,6 +350,19 @@ function updateTable() {
             }
         }
 
+        // Check release filter
+        if (showRow && window.releaseFiltersDropdown) {
+            const selectedReleases = window.releaseFiltersDropdown.getSelectedValues();
+            const allReleasesSelected = window.releaseFiltersDropdown.isAllSelected();
+            
+            if (!allReleasesSelected) {
+                const rowRelease = row.getAttribute('data-release');
+                if (!rowRelease || !selectedReleases.includes(rowRelease)) {
+                    showRow = false;
+                }
+            }
+        }
+
         if (showRow && searchString.length != 0) {
             const name = row.getAttribute(`data-name`);
             if (!name.includes(searchString)) {
@@ -338,7 +377,8 @@ function updateTable() {
     
     const noResultsMessage = visibleLeaderboard.querySelector('.no-results');
     // Show/hide no results message
-    if (visibleRowCount === 0 && (activeFilters.size > 0 || !isAllTagsSelected())) {
+    const hasActiveFilters = !window.tagFiltersDropdown.isAllSelected() || !window.releaseFiltersDropdown.isAllSelected();
+    if (visibleRowCount === 0 && hasActiveFilters) {
         noResultsMessage.style.display = 'table-row';
     } else {
         noResultsMessage.style.display = 'none';
@@ -355,6 +395,7 @@ function updateTable() {
 // Global dropdown instances
 // let mainFiltersDropdown = null;
 let tagFiltersDropdown = null;
+let releaseFiltersDropdown = null;
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
@@ -385,6 +426,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Initialize Release Filters Dropdown
+    releaseFiltersDropdown = new MultiSelectDropdown('release-filters', {
+        searchable: false,
+        allOptionText: 'All Releases',
+        summaryPrefix: '',
+        noSelectionText: 'No Releases',
+        allSelectedText: 'All Releases',
+        onSelectionChange: (selectedReleases) => {
+            updateTable(); // Just update table when release selection changes
+        }
+    });
+
     const searchInput = document.getElementById("leaderboard-search-input");
 
     searchInput.addEventListener("input", function (event) {
@@ -394,14 +447,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize with tags for the default leaderboard (code-generation-limited-context)
     updateTagsForLeaderboard('code-generation-limited-context');
     
+    // Initialize with releases for the default leaderboard (code-generation-limited-context)
+    updateReleasesForLeaderboard('code-generation-limited-context');
+    
     // Set initial selection for main filters
     // if (mainFiltersDropdown) {
     //     mainFiltersDropdown.setSelectedValues(['os_system']);
     // }
     
-    // Make both dropdowns globally accessible
+    // Make dropdowns globally accessible
     // window.mainFiltersDropdown = mainFiltersDropdown;
     window.tagFiltersDropdown = tagFiltersDropdown;
+    window.releaseFiltersDropdown = releaseFiltersDropdown;
     
     // Check for initial leaderboard visibility (in case landing directly on code-generation-limited-context)
     setTimeout(() => {
@@ -411,6 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const leaderboardName = leaderboardId.replace('leaderboard-', '');
             updateFilterVisibility(leaderboardName);
             updateTagsForLeaderboard(leaderboardName); // Update tags for the initial leaderboard
+            updateReleasesForLeaderboard(leaderboardName); // Update releases for the initial leaderboard
         }
     }, 100);
 });
