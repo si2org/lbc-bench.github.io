@@ -139,20 +139,35 @@ def main() -> None:
     leaderboard_tags = {}
     all_tags = set()
     
+    # Collect release values per leaderboard and global releases
+    leaderboard_releases = {}
+    all_releases = set()
+    
     for leaderboard in leaderboards["leaderboards"] if isinstance(leaderboards, dict) else leaderboards:
         leaderboard_name = leaderboard["name"]
         leaderboard_tags[leaderboard_name] = set()
+        leaderboard_releases[leaderboard_name] = set()
         
         for entry in leaderboard["results"]:
+            # Collect tags
             if "tags" in entry and entry["tags"]:
                 entry_tags = entry["tags"]
                 leaderboard_tags[leaderboard_name].update(entry_tags)
                 all_tags.update(entry_tags)
+            
+            # Collect release values
+            if "release" in entry and entry["release"]:
+                leaderboard_releases[leaderboard_name].add(entry["release"])
+                all_releases.add(entry["release"])
     
     # Convert sets to sorted lists for JSON serialization
     for leaderboard_name in leaderboard_tags:
         leaderboard_tags[leaderboard_name] = sorted(list(leaderboard_tags[leaderboard_name]))
     all_tags = sorted(list(all_tags))
+    
+    for leaderboard_name in leaderboard_releases:
+        leaderboard_releases[leaderboard_name] = sorted(list(leaderboard_releases[leaderboard_name]))
+    all_releases = sorted(list(all_releases))
     
     # render all pages
     for tpl_name, out_name in PAGES.items():
@@ -162,6 +177,8 @@ def main() -> None:
             leaderboards=leaderboards["leaderboards"] if isinstance(leaderboards, dict) else leaderboards,
             all_tags=all_tags,  # Keep for backward compatibility
             leaderboard_tags=leaderboard_tags,  # New per-leaderboard tags
+            all_releases=all_releases,  # Global releases for filtering
+            leaderboard_releases=leaderboard_releases,  # Per-leaderboard releases
         )
         (DIST / out_name).write_text(html)
         print(f"built {out_name}")

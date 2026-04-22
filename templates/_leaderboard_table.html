@@ -25,12 +25,27 @@
             <div class="multiselect-container" id="tag-filters">
                 <button class="btn btn-sm btn-outline-secondary filter-toggle multiselect-toggle" type="button" title="Filter by tags">
                     <span class="multiselect-summary">All Tags</span>
-                    <span class="multiselect-icon">▼</span>
+                    <span class="multiselect-icon">+</span>
                 </button>
                 <form class="multiselect-form">
                     <div class="multiselect-dropdown">
                         <div class="multiselect-options" id="tag-options-container">
                             <!-- Tag options will be dynamically populated here -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Release Dropdown -->
+            <div class="multiselect-container" id="release-filters">
+                <button class="btn btn-sm btn-outline-secondary filter-toggle multiselect-toggle" type="button" title="Filter by release">
+                    <span class="multiselect-summary">All Releases</span>
+                    <span class="multiselect-icon">+</span>
+                </button>
+                <form class="multiselect-form">
+                    <div class="multiselect-dropdown">
+                        <div class="multiselect-options" id="release-options-container">
+                            <!-- Release options will be dynamically populated here -->
                         </div>
                     </div>
                 </form>
@@ -55,4 +70,8 @@
 
 <script type="application/json" id="leaderboard-tags-data">
     {{ leaderboard_tags | tojson }}
+</script>
+
+<script type="application/json" id="leaderboard-releases-data">
+    {{ leaderboard_releases | tojson }}
 </script>

@@ -125,6 +125,7 @@ function renderLeaderboardTable(leaderboard) {
                                     data-checked="${item.checked ? 'true' : 'false'}"
                                     data-tags="${item.tags ? item.tags.join(',') : ''}"
                                     data-name="${item.name}"
+                                    data-release="${item.release || ''}"
                                 >
                                     <td>
                                         <div class="flex items-center gap-1">
@@ -203,12 +204,52 @@ function handleSortClick(header, leaderboardName) {
         sortState.direction = getDefaultSortDirection(field);
     }
     
-    const data = loadLeaderboardData();
-    if (!data) return;
+    // DOM-based sorting - sort visible rows only
+    const container = document.getElementById('leaderboard-container');
+    const tableWrapper = container.querySelector(`#leaderboard-${leaderboardName}`);
+    if (!tableWrapper) return;
     
-    const leaderboard = data.find(lb => lb.name === leaderboardName);
-    if (leaderboard) {
-        renderLeaderboardTable(leaderboard);
+    const tbody = tableWrapper.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr:not(.no-results)'));
+    
+    // Sort the visible rows
+    rows.sort((a, b) => {
+        const aValue = getSortValue(a, field);
+        const bValue = getSortValue(b, field);
+        
+        let comparison = 0;
+        if (aValue < bValue) comparison = -1;
+        else if (aValue > bValue) comparison = 1;
+        
+        return sortState.direction === 'asc' ? comparison : -comparison;
+    });
+    
+    // Re-append sorted rows to maintain order
+    rows.forEach(row => tbody.appendChild(row));
+    
+    updateSortIndicators();
+}
+
+function getSortValue(row, field) {
+    switch (field) {
+        case 'name':
+            return (row.getAttribute('data-name') || '').toLowerCase();
+        case 'resolved_full':
+            return parseFloat(row.querySelector('td:nth-child(2) .number').textContent) || 0;
+        case 'resolved_oss':
+            return parseFloat(row.querySelector('td:nth-child(3) .number').textContent) || 0;
+        case 'cost':
+            return parseFloat(row.querySelector('td:nth-child(5) .number').textContent) || 0;
+        case 'date':
+            return row.querySelector('td:nth-child(6) .label-date').textContent || '';
+        case 'logs':
+        case 'trajs':
+        case 'site':
+            return row.querySelector(`td:nth-child(${field === 'logs' ? 8 : field === 'trajs' ? 9 : 10})`) ? 1 : 0;
+        case 'release':
+            return row.querySelector('td:nth-child(11) span').textContent || '';
+        default:
+            return '';
     }
 }
 
