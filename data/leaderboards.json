@@ -756,7 +756,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "warning": null
+            "warning": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Claude Sonnet 4.6",
@@ -781,7 +781,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "warning": null
+            "warning": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "GPT-5.3 Codex",
@@ -806,7 +806,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "warning": null
+            "warning": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Gemini 2.5 Pro",
@@ -831,7 +831,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "warning": null
+            "warning": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Gemini 3.1 Pro Preview",
@@ -856,7 +856,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "warning": null
+            "warning": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Kimi K2.5",
@@ -881,7 +881,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "warning": null
+            "warning": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "MiniMax M2.5",
@@ -906,7 +906,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "warning": null
+            "warning": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Gemini 3.1 Pro Preview",
@@ -931,7 +931,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "warning": null
+            "warning": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Gemini 3.1 Flash Lite Preview",
@@ -956,7 +956,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "warning": null
+            "warning": "Judge model: gemini-3.1-pro-preview"
         }
     ]
     },
