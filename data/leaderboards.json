@@ -427,6 +427,56 @@
                 "Single turn: true"
             ],
             "warning": null
+        },
+        {
+            "name": "Gemini 3.1 Pro Preview",
+            "logo": [
+                "./img/gemini-color.png"
+            ],
+            "site": "https://chinmayhegde.github.io/lab/",
+            "folder": "",
+            "cost": null,
+            "resolved_full": null,
+            "resolved_oss": 64.42,
+            "date": "2026-05-10",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.1.0",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: N/A",
+                "Model: gemini-3.1-pro-preview",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
+        },
+        {
+            "name": "Gemini 3.1 Flash Lite Preview",
+            "logo": [
+                "./img/gemini-color.png"
+            ],
+            "site": "https://chinmayhegde.github.io/lab/",
+            "folder": "",
+            "cost": null,
+            "resolved_full": null,
+            "resolved_oss": 43.55,
+            "date": "2026-05-10",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.1.0",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: N/A",
+                "Model: gemini-3.1-flash-lite-preview",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "warning": null
         }
       ]
     },
@@ -706,6 +756,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
+            "notes": "Judge model: gemini-3.1-pro-preview",
             "warning": null
         },
         {
@@ -731,6 +782,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
+            "notes": "Judge model: gemini-3.1-pro-preview",
             "warning": null
         },
         {
@@ -756,6 +808,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
+            "notes": "Judge model: gemini-3.1-pro-preview",
             "warning": null
         },
         {
@@ -781,6 +834,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
+            "notes": "Judge model: gemini-3.1-pro-preview",
             "warning": null
         },
         {
@@ -806,6 +860,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
+            "notes": "Judge model: gemini-3.1-pro-preview",
             "warning": null
         },
         {
@@ -831,6 +886,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
+            "notes": "Judge model: gemini-3.1-pro-preview",
             "warning": null
         },
         {
@@ -856,6 +912,59 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
+            "notes": "Judge model: gemini-3.1-pro-preview",
+            "warning": null
+        },
+        {
+            "name": "Gemini 3.1 Pro Preview",
+            "logo": [
+                "./img/gemini-color.png"
+            ],
+            "site": "https://chinmayhegde.github.io/lab/",
+            "folder": "",
+            "cost": null,
+            "resolved_full": 81.31,
+            "resolved_oss": 81.31,
+            "date": "2026-05-10",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.1.0",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gemini-3.1-pro-preview",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "notes": "Judge model: gemini-3.1-pro-preview",
+            "warning": null
+        },
+        {
+            "name": "Gemini 3.1 Flash Lite Preview",
+            "logo": [
+                "./img/gemini-color.png"
+            ],
+            "site": "https://chinmayhegde.github.io/lab/",
+            "folder": "",
+            "cost": null,
+            "resolved_full": 74.75,
+            "resolved_oss": 74.75,
+            "date": "2026-05-10",
+            "logs": "",
+            "trajs": "",
+            "checked": false,
+            "release": "1.1.0",
+            "tags": [
+                "Open Source Tool: N/A",
+                "Commercial Tool: N/A",
+                "Model: gemini-3.1-flash-lite-preview",
+                "Org: Google",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ],
+            "notes": "Judge model: gemini-3.1-pro-preview",
             "warning": null
         }
     ]
