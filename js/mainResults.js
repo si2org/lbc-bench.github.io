@@ -28,6 +28,10 @@ function loadLeaderboardData() {
     return leaderboardData;
 }
 
+function getLogsTrajsValue(item) {
+    return item["logs/trajs"] || item.logs || item.trajs || '';
+}
+
 function sortItems(a, b, field, direction) {
     const getValue = (item, field) => {
         switch (field) {
@@ -43,8 +47,6 @@ function sortItems(a, b, field, direction) {
                 return getOrgName(item);
             case 'date':
                 return item.date || '';
-            case 'logs':
-            case 'trajs':
             case 'site':
                 return item[field] ? 1 : 0;
             case 'release':
@@ -95,7 +97,6 @@ function renderLeaderboardTable(leaderboard) {
     // const isBashOnly = leaderboard.name.toLowerCase() === 'code-generation-limited-context';
     
     const results = leaderboard.results
-        // .filter(item => !item.warning)
         .slice()
         .sort((a, b) => sortItems(a, b, sortState.field, sortState.direction));
 
@@ -113,8 +114,7 @@ function renderLeaderboardTable(leaderboard) {
                             <th class="sortable" data-sort="cost">Avg. $</th>
                             <th class="sortable" data-sort="date">Date</th>
                             <th class="sortable" data-sort="notes">Notes</th>
-                            <th class="sortable" data-sort="logs">Logs</th>
-                            <th class="sortable" data-sort="trajs">Trajs</th>
+                            <th>Logs/Trajs</th>
                             <th class="sortable" data-sort="site">Site</th>
                             <th class="sortable" data-sort="release">Release</th>
                         </tr>
@@ -152,10 +152,9 @@ function renderLeaderboardTable(leaderboard) {
                                             : '<span class="text-muted">-</span>'}
                                     </td>
                                     <td class="centered-text text-center">
-                                        ${item.logs ? '<span class="text-success">✓</span>' : '<span class="text-muted">-</span>'}
-                                    </td>
-                                    <td class="centered-text text-center">
-                                        ${item.trajs ? '<span class="text-success">✓</span>' : '<span class="text-muted">-</span>'}
+                                        ${getLogsTrajsValue(item)
+                                            ? `<a href="${getLogsTrajsValue(item)}" target="_blank" rel="noopener noreferrer" title="Open logs/trajectories">🔗</a>`
+                                            : '<span class="text-muted">-</span>'}
                                     </td>
                                     <td class="centered-text text-center">
                                         ${item.site ? `<a href="${item.site}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>` : '<span class="text-muted">-</span>'}
@@ -242,12 +241,10 @@ function getSortValue(row, field) {
             return parseFloat(row.querySelector('td:nth-child(5) .number').textContent) || 0;
         case 'date':
             return row.querySelector('td:nth-child(6) .label-date').textContent || '';
-        case 'logs':
-        case 'trajs':
         case 'site':
-            return row.querySelector(`td:nth-child(${field === 'logs' ? 8 : field === 'trajs' ? 9 : 10})`) ? 1 : 0;
+            return row.querySelector('td:nth-child(9) a') ? 1 : 0;
         case 'release':
-            return row.querySelector('td:nth-child(11) span').textContent || '';
+            return row.querySelector('td:nth-child(10) span').textContent || '';
         default:
             return '';
     }

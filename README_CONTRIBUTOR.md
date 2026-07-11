@@ -48,8 +48,7 @@ Add your entry to the `results` array:
     "resolved_full": 29.46,
     "resolved_oss": 40.81,
     "date": "2025-11-30",
-    "logs": "",
-    "trajs": "",
+    "logs/trajs": "",
     "notes": "Tokens used: XXXX\nModel snapshot: XXXX",
     "checked": false,
     "release": "1.0.2",
@@ -60,8 +59,7 @@ Add your entry to the `results` array:
         "Org: your-org",
         "Evaluation style: non-agentic",
         "Single turn: true"
-    ],
-    "warning": null
+    ]
 }
 ```
 
@@ -78,9 +76,8 @@ Add your entry to the `results` array:
 | `checked` | Validation status | Set to `false` for new submissions |
 | `release` | Benchmark version | Current release number |
 | `tags` |  Properties (filterable) | Follow format shown above |
-| `folder`, `logs`, `trajs` | Future use | Leave as empty strings for now |
+| `folder`, `logs/trajs` | Future use | Leave as empty strings for now |
 | `notes` | Detailed run information | Token usage, runtime, model snapshot info, etc. Populating this field is **HIGHLY** recommended |
-| `warning` | Future use | Set to `null` for now |
 
 <sup>†</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) and commercial simulator dataset run.<br>
 <sup>‡</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) dataset run.<br>

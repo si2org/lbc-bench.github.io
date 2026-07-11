@@ -14,8 +14,7 @@
             "resolved_full": 29.46,
             "resolved_oss": 40.81,
             "date": "2025-10-30",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -25,8 +24,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "gpt-4o-mini",
@@ -39,8 +37,7 @@
             "resolved_full": 16.76,
             "resolved_oss": 22.99,
             "date": "2025-10-30",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -50,8 +47,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Meta-Llama-3-1-405B-Instruct",
@@ -64,8 +60,7 @@
             "resolved_full": 21.36,
             "resolved_oss": 28.43,
             "date": "2025-11-18",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -75,8 +70,7 @@
                 "Org: Meta",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Llama-3-3-70B-Instruct",
@@ -89,8 +83,7 @@
             "resolved_full": 16.64,
             "resolved_oss": 23.81,
             "date": "2025-11-21",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -100,8 +93,7 @@
                 "Org: Meta",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "claude-sonnet-4-5-20250929",
@@ -114,8 +106,7 @@
             "resolved_full": 33.50,
             "resolved_oss": 46.50,
             "date": "2025-12-06",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -125,8 +116,7 @@
                 "Org: Anthropic",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "claude-sonnet-4-20250514",
@@ -139,8 +129,7 @@
             "resolved_full": 32.11,
             "resolved_oss": 44.57,
             "date": "2025-12-08",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -150,8 +139,7 @@
                 "Org: Anthropic",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "gpt-5-mini",
@@ -164,8 +152,7 @@
             "resolved_full": 21.14,
             "resolved_oss": 30.56,
             "date": "2026-01-23",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -175,8 +162,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "gpt-5.2 medium reasoning",
@@ -189,8 +175,7 @@
             "resolved_full": 28.84,
             "resolved_oss": 42.18,
             "date": "2026-02-09",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -200,8 +185,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "gpt-5.2 high reasoning",
@@ -214,8 +198,7 @@
             "resolved_full": 31.22,
             "resolved_oss": 44.62,
             "date": "2026-02-19",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -225,8 +208,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "gpt-5.2 low reasoning",
@@ -239,8 +221,7 @@
             "resolved_full": 31.37,
             "resolved_oss": 44.37,
             "date": "2026-02-10",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -250,8 +231,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },        
         {
             "name": "Gemini 3.1 Pro Preview",
@@ -264,8 +244,7 @@
             "resolved_full": null,
             "resolved_oss": 56.41,
             "date": "2026-03-15",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -275,8 +254,7 @@
                 "Org: Google",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Claude Opus 4.6",
@@ -289,8 +267,7 @@
             "resolved_full": null,
             "resolved_oss": 47.11,
             "date": "2026-03-15",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -300,8 +277,7 @@
                 "Org: Anthropic",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Claude Sonnet 4.6",
@@ -314,8 +290,7 @@
             "resolved_full": null,
             "resolved_oss": 44.77,
             "date": "2026-03-15",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -325,8 +300,7 @@
                 "Org: Anthropic",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "GPT-5.3 Codex",
@@ -339,8 +313,7 @@
             "resolved_full": null,
             "resolved_oss": 48.12,
             "date": "2026-03-15",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -350,8 +323,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Gemini 2.5 Pro",
@@ -364,8 +336,7 @@
             "resolved_full": null,
             "resolved_oss": 33.86,
             "date": "2026-03-15",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -375,8 +346,7 @@
                 "Org: Google",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Kimi K2.5",
@@ -389,8 +359,7 @@
             "resolved_full": null,
             "resolved_oss": 44.25,
             "date": "2026-03-15",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -400,8 +369,7 @@
                 "Org: Moonshot AI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "MiniMax M2.5",
@@ -414,8 +382,7 @@
             "resolved_full": null,
             "resolved_oss": 30.84,
             "date": "2026-03-15",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -425,8 +392,7 @@
                 "Org: MiniMax",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Gemini 3.1 Pro Preview",
@@ -439,8 +405,7 @@
             "resolved_full": null,
             "resolved_oss": 64.42,
             "date": "2026-05-10",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.1.0",
             "tags": [
@@ -450,8 +415,7 @@
                 "Org: Google",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Gemini 3.1 Flash Lite Preview",
@@ -464,8 +428,7 @@
             "resolved_full": null,
             "resolved_oss": 43.55,
             "date": "2026-05-10",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.1.0",
             "tags": [
@@ -475,8 +438,7 @@
                 "Org: Google",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         }
       ]
     },
@@ -494,8 +456,7 @@
             "resolved_full": 74.91,
             "resolved_oss": 74.91,
             "date": "2025-11-10",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -505,8 +466,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "gpt-4o-mini",
@@ -519,8 +479,7 @@
             "resolved_full": 68.55,
             "resolved_oss": 68.55,
             "date": "2025-11-10",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -530,8 +489,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Meta-Llama-3-1-405B-Instruct",
@@ -544,8 +502,7 @@
             "resolved_full": 56.82,
             "resolved_oss": 56.82,
             "date": "2025-11-18",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -555,8 +512,7 @@
                 "Org: Meta",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Llama-3.3-70B-Instruct",
@@ -569,8 +525,7 @@
             "resolved_full": 62.2,
             "resolved_oss": 62.2,
             "date": "2025-11-21",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -580,8 +535,7 @@
                 "Org: Meta",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "claude-sonnet-4-5-20250929",
@@ -594,8 +548,7 @@
             "resolved_full": 67.22,
             "resolved_oss": 67.22,
             "date": "2025-12-06",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -605,8 +558,7 @@
                 "Org: Anthropic",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "claude-sonnet-4-20250514",
@@ -619,8 +571,7 @@
             "resolved_full": 70.83,
             "resolved_oss": 70.83,
             "date": "2025-12-08",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -630,8 +581,7 @@
                 "Org: Anthropic",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "gpt-5-mini",
@@ -644,8 +594,7 @@
             "resolved_full": 72.0,
             "resolved_oss": 72.0,
             "date": "2026-01-23",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -655,8 +604,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "gpt-5.2 medium reasoning",
@@ -669,8 +617,7 @@
             "resolved_full": 74.57,
             "resolved_oss": 74.57,
             "date": "2026-02-09",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -680,8 +627,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "gpt-5.2 low reasoning",
@@ -694,8 +640,7 @@
             "resolved_full": 74.37,
             "resolved_oss": 74.37,
             "date": "2026-02-10",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -705,8 +650,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "gpt-5.2 high reasoning",
@@ -719,8 +663,7 @@
             "resolved_full": 75.46,
             "resolved_oss": 75.46,
             "date": "2026-02-19",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -730,8 +673,7 @@
                 "Org: OpenAI",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
-            ],
-            "warning": null
+            ]
         },
         {
             "name": "Claude Opus 4.6",
@@ -744,8 +686,7 @@
             "resolved_full": 64.23,
             "resolved_oss": 64.23,
             "date": "2026-04-08",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -756,8 +697,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "notes": "Judge model: gemini-3.1-pro-preview",
-            "warning": null
+            "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Claude Sonnet 4.6",
@@ -770,8 +710,7 @@
             "resolved_full": 64.0,
             "resolved_oss": 64.0,
             "date": "2026-04-08",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -782,8 +721,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "notes": "Judge model: gemini-3.1-pro-preview",
-            "warning": null
+            "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "GPT-5.3 Codex",
@@ -796,8 +734,7 @@
             "resolved_full": 67.04,
             "resolved_oss": 67.04,
             "date": "2026-04-08",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -808,8 +745,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "notes": "Judge model: gemini-3.1-pro-preview",
-            "warning": null
+            "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Gemini 2.5 Pro",
@@ -822,8 +758,7 @@
             "resolved_full": 69.11,
             "resolved_oss": 69.11,
             "date": "2026-04-08",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -834,8 +769,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "notes": "Judge model: gemini-3.1-pro-preview",
-            "warning": null
+            "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Gemini 3.1 Pro Preview",
@@ -848,8 +782,7 @@
             "resolved_full": 73.47,
             "resolved_oss": 73.47,
             "date": "2026-04-08",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -860,8 +793,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "notes": "Judge model: gemini-3.1-pro-preview",
-            "warning": null
+            "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Kimi K2.5",
@@ -874,8 +806,7 @@
             "resolved_full": 72.03,
             "resolved_oss": 72.03,
             "date": "2026-04-08",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -886,8 +817,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "notes": "Judge model: gemini-3.1-pro-preview",
-            "warning": null
+            "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "MiniMax M2.5",
@@ -900,8 +830,7 @@
             "resolved_full": 64.0,
             "resolved_oss": 64.0,
             "date": "2026-04-08",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.0.2",
             "tags": [
@@ -912,8 +841,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "notes": "Judge model: gemini-3.1-pro-preview",
-            "warning": null
+            "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Gemini 3.1 Pro Preview",
@@ -926,8 +854,7 @@
             "resolved_full": 81.31,
             "resolved_oss": 81.31,
             "date": "2026-05-10",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.1.0",
             "tags": [
@@ -938,8 +865,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "notes": "Judge model: gemini-3.1-pro-preview",
-            "warning": null
+            "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
             "name": "Gemini 3.1 Flash Lite Preview",
@@ -952,8 +878,7 @@
             "resolved_full": 74.75,
             "resolved_oss": 74.75,
             "date": "2026-05-10",
-            "logs": "",
-            "trajs": "",
+            "logs/trajs": "",
             "checked": false,
             "release": "1.1.0",
             "tags": [
@@ -964,8 +889,7 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ],
-            "notes": "Judge model: gemini-3.1-pro-preview",
-            "warning": null
+            "notes": "Judge model: gemini-3.1-pro-preview"
         }
     ]
     },
