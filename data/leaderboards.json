@@ -73,7 +73,7 @@
             ]
         },
         {
-            "name": "Llama-3-3-70B-Instruct",
+            "name": "Llama-3.3-70B-Instruct",
             "logo": [
                 "./img/llama.png"
             ],
@@ -89,7 +89,7 @@
             "tags": [
                 "Open Source Tool: Icarus",
                 "Commercial Tool: Xcelium",
-                "Model: Llama-3-3-70B-Instruct",
+                "Model: Llama-3.3-70B-Instruct",
                 "Org: Meta",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
@@ -446,7 +446,7 @@
         "name": "code-comprehension",
         "results": [
         {
-            "name": "o4-mini ",
+            "name": "o4-mini",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
             ],
@@ -531,7 +531,7 @@
             "tags": [
                 "Open Source Tool: N/A",
                 "Commercial Tool: N/A",
-                "Model: Llama-3-3-70B-Instruct",
+                "Model: Llama-3.3-70B-Instruct",
                 "Org: Meta",
                 "Evaluation style: non-agentic",
                 "Single turn: true"
