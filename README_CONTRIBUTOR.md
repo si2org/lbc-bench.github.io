@@ -73,22 +73,38 @@ Add your entry to the `results` array:
 | `resolved_full` | Pass rate<sup>&dagger;</sup> | Percentage - <br>`null` if commercial simulator unavailable |
 | `resolved_oss` | Pass rate<sup>&Dagger;</sup> | Percentage |
 | `date` | Run date | Format: YYYY-MM-DD |
+| `logs/trajs` | URL to access logs and trajectories | Filled by `scripts/pack_logs.py` (see step 5) |
 | `checked` | Validation status | Set to `false` for new submissions |
 | `release` | Benchmark version | Current release number |
 | `tags` |  Properties (filterable) | Follow format shown above |
-| `folder`, `logs/trajs` | Future use | Leave as empty strings for now |
 | `notes` | Detailed run information | Token usage, runtime, model snapshot info, etc. Populating this field is **HIGHLY** recommended |
 
 <sup>†</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) and commercial simulator dataset run.<br>
 <sup>‡</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) dataset run.<br>
 
-### 5. Validate JSON Syntax
+### 5. Pack Evaluation Logs
+After your model entry exists in `data/leaderboards.json`, run `scripts/pack_logs.py` to pack the CVDP evaluation work directory (logs) and fill the corresponding `logs/trajs` field of `data/leaderboards.json` with a Hugging Face URL:
+
+```bash
+python scripts/pack_logs.py -m "model-name" -p /path/to/work_dir
+# Optional: preview without writing
+python scripts/pack_logs.py -m "model-name" -p /path/to/work_dir --dry-run
+```
+
+- `-m` must match the entry's `"name"` in `data/leaderboards.json` exactly (including effort suffixes such as `gpt-5.2 medium reasoning`). If no matching name exists, the script errors out.
+- `-p` is the CVDP evaluation `work*` directory (must contain `composite_report.txt`).
+- Output goes under `./upload/<GUID>/` by default (`-u` to override). That tree holds `README.md`, the dataset-named folder, `composite_report.txt`, and `logs.tgz`.
+- `--dry-run` prints the planned GUID-named folder, paths, and JSON update without writing files.
+
+Contact Si2 with the location of your `upload` data so they can inspect it and perform the final Hugging Face upload.
+
+### 6. Validate JSON Syntax
 Ensure your JSON is valid. Use any JSON validator or:
 ```bash
 python -m json.tool data/leaderboards.json
 ```
 
-### 6. Test Locally
+### 7. Test Locally
 ```bash
 make build && make serve
 ```
@@ -96,14 +112,14 @@ View at: http://localhost:8000
 
 Verify your entry appears correctly in the leaderboard.
 
-### 7. Commit and Push
+### 8. Commit and Push
 ```bash
 git add data/leaderboards.json ./img/model-logo.png (only if a new image was added)
 git commit -m "Add results for your-model-name"
 git push origin add-model-results
 ```
 
-### 8. Create Pull Request (PR)
+### 9. Create Pull Request (PR)
 1. Go to your fork on GitHub
 2. Click "Contribute" -> "Open pull request"
 3. Provide a clear description:
