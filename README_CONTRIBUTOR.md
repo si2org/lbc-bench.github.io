@@ -91,7 +91,7 @@ python scripts/pack_logs.py -m "model-name" -p /path/to/work_dir
 python scripts/pack_logs.py -m "model-name" -p /path/to/work_dir --dry-run
 ```
 
-- `-m` must match the entry's `"name"` in `data/leaderboards.json` exactly (including effort suffixes such as `gpt-5.2 medium reasoning`). If no matching name exists, the script errors out.
+- `-m` must match the entry's `"name"` in `data/leaderboards.json` exactly. If no matching name exists, the script errors out.
 - `-p` is the CVDP evaluation `work*` directory (must contain `composite_report.txt`).
 - Output goes under `./upload/<GUID>/` by default (`-u` to override). That tree holds `README.md`, the dataset-named folder, `composite_report.txt`, and `logs.tgz`.
 - `--dry-run` prints the planned GUID-named folder, paths, and JSON update without writing files.
