@@ -225,13 +225,13 @@ def main() -> None:
 
     hf_url = f"{HF_BASE.rstrip('/')}/{guid}"
     guid_dir = upload_root / guid
-    dataset_dir = guid_dir / dataset
+    logs_dir = guid_dir / dataset
     readme_path = guid_dir / "README.md"
-    dest_tgz = dataset_dir / "logs.tgz"
-    dest_report = dataset_dir / "composite_report.txt"
+    dest_tgz = logs_dir / "logs.tgz"
+    dest_report = logs_dir / "composite_report.txt"
 
-    if dataset_dir.exists():
-        raise SystemExit(f"error: dataset folder already exists: {dataset_dir}")
+    if logs_dir.exists():
+        raise SystemExit(f"error: dataset folder already exists: {logs_dir}")
 
     print(f"work_dir:     {work_dir}")
     print(f"dataset:      {dataset} -> {category}")
@@ -239,7 +239,7 @@ def main() -> None:
     print(f"GUID:         {guid} ({'new' if url_was_empty else 'from existing URL'})")
     print(f"HF URL:       {hf_url}")
     print(f"guid_dir:     {guid_dir}")
-    print(f"dataset_dir:  {dataset_dir}")
+    print(f"logs_dir:  {logs_dir}")
     print(f"README:       {readme_path}")
     print(f"logs.tgz:     {dest_tgz}")
     print(f"report:       {dest_report}")
@@ -272,7 +272,7 @@ def main() -> None:
     readme_path.write_text(readme_text(item), encoding="utf-8")
     print(f"wrote {readme_path}")
 
-    dataset_dir.mkdir(parents=False, exist_ok=False)
+    logs_dir.mkdir(parents=False, exist_ok=False)
     shutil.copy2(report, dest_report)
     print(f"copied {report} -> {dest_report}")
 
