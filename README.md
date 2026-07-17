@@ -166,7 +166,7 @@ The leaderboard data follows a specific flow from JSON to rendered HTML:
        <table class="table scrollable data-table">
            <!-- Table headers -->
            <tbody>
-               {% for item in leaderboard.results if not item.warning %}
+               {% for item in leaderboard.results %}
                <tr>
                    <!-- Row data from each result item -->
                </tr>

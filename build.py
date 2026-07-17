@@ -37,21 +37,19 @@ LEADERBOARDS_SCHEMA = {
                                 "resolved_full": {"type": ["number", "null"]},
                                 "resolved_oss": {"type": "number"},
                                 "date": {"type": "string"},
-                                "logs": {"type": "string"},
-                                "trajs": {"type": "string"},
+                                "logs/trajs": {"type": "string"},
                                 "notes": {"type": "string"},
                                 "release": {"type": "string"},
                                 "checked": {"type": "boolean"},
                                 "tags": {
                                     "type": "array",
                                     "items": {"type": "string"}
-                                },
-                                "warning": {"type": ["string", "null"]}
+                                }
                             },
                             "required": [
                                 "name", "logo", "site", "folder", "cost", 
                                 "resolved_full", "resolved_oss", "date", 
-                                "logs", "trajs", "checked", "tags", "warning"
+                                "logs/trajs", "checked", "tags"
                             ],
                             "additionalProperties": False
                         }
