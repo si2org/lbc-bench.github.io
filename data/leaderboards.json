@@ -14,7 +14,7 @@
             "resolved_full": 29.46,
             "resolved_oss": 40.81,
             "date": "2025-10-30",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -37,7 +37,7 @@
             "resolved_full": 16.76,
             "resolved_oss": 22.99,
             "date": "2025-10-30",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/9159bfb2-5550-4b7e-acd1-bfd88a418a31",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -60,7 +60,7 @@
             "resolved_full": 21.36,
             "resolved_oss": 28.43,
             "date": "2025-11-18",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/3888fc16-ca32-4fbb-9646-e6e03774955f",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -83,7 +83,7 @@
             "resolved_full": 16.64,
             "resolved_oss": 23.81,
             "date": "2025-11-21",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/068962ad-6aab-44d3-9ab8-345262a8651c",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -106,7 +106,7 @@
             "resolved_full": 33.50,
             "resolved_oss": 46.50,
             "date": "2025-12-06",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/8e1b09c9-96eb-4ce3-8601-abdb304bb9eb",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -129,7 +129,7 @@
             "resolved_full": 32.11,
             "resolved_oss": 44.57,
             "date": "2025-12-08",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/1f92dc65-245a-461e-a214-019bd890b803",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -152,7 +152,7 @@
             "resolved_full": 21.14,
             "resolved_oss": 30.56,
             "date": "2026-01-23",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/ca9c2611-c820-410b-8564-952f496b9d84",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -175,7 +175,7 @@
             "resolved_full": 28.84,
             "resolved_oss": 42.18,
             "date": "2026-02-09",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/a41cf8a8-cc83-416c-bb02-a4e619ca7725",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -198,7 +198,7 @@
             "resolved_full": 31.22,
             "resolved_oss": 44.62,
             "date": "2026-02-19",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/608395ba-5002-4355-85be-68b2e665f09b",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -221,7 +221,7 @@
             "resolved_full": 31.37,
             "resolved_oss": 44.37,
             "date": "2026-02-10",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/cf0a9f6f-6f46-4077-8219-d7cc33bbeaaf",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -456,7 +456,7 @@
             "resolved_full": 74.91,
             "resolved_oss": 74.91,
             "date": "2025-11-10",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/f0bcf69c-5abf-4bc7-b5c0-3feb02cff7be",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -479,7 +479,7 @@
             "resolved_full": 68.55,
             "resolved_oss": 68.55,
             "date": "2025-11-10",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/741309e5-3616-448f-a254-841cc93ee86c",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -502,7 +502,7 @@
             "resolved_full": 56.82,
             "resolved_oss": 56.82,
             "date": "2025-11-18",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/63457e50-161e-4165-b747-5266d172b789",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -525,7 +525,7 @@
             "resolved_full": 62.2,
             "resolved_oss": 62.2,
             "date": "2025-11-21",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/2f7fd37a-7c5c-4d96-a7fa-05d064b8768e",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -548,7 +548,7 @@
             "resolved_full": 67.22,
             "resolved_oss": 67.22,
             "date": "2025-12-06",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/6acb4a65-945e-4925-bd51-fc73a080575b",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -571,7 +571,7 @@
             "resolved_full": 70.83,
             "resolved_oss": 70.83,
             "date": "2025-12-08",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/a1a38571-6a6d-4bd1-99f3-e11666ebbfc5",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -594,7 +594,7 @@
             "resolved_full": 72.0,
             "resolved_oss": 72.0,
             "date": "2026-01-23",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/7adc49f4-e6ab-47c8-9261-83159229320c",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -617,7 +617,7 @@
             "resolved_full": 74.57,
             "resolved_oss": 74.57,
             "date": "2026-02-09",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/2806c934-5b46-4e1b-a237-83c7987cd5ca",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -640,7 +640,7 @@
             "resolved_full": 74.37,
             "resolved_oss": 74.37,
             "date": "2026-02-10",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/57c6d4cf-7d00-4556-acb4-2795f8120e57",
             "checked": true,
             "release": "1.0.2",
             "tags": [
@@ -663,7 +663,7 @@
             "resolved_full": 75.46,
             "resolved_oss": 75.46,
             "date": "2026-02-19",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/3342510e-563d-4688-8bb0-863de345fd00",
             "checked": true,
             "release": "1.0.2",
             "tags": [

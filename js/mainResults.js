@@ -32,6 +32,20 @@ function getLogsTrajsValue(item) {
     return item["logs/trajs"] || item.logs || item.trajs || '';
 }
 
+function renderResolvedCell(value, logsTrajsUrl) {
+    const formattedValue = cleanNum(value);
+    if (formattedValue === "-") {
+        return '<span class="number fw-medium text-primary">-</span>';
+    }
+
+    const content = `<span class="number fw-medium text-primary">${formattedValue}</span>`;
+    if (!logsTrajsUrl) {
+        return content;
+    }
+
+    return `<a href="${logsTrajsUrl}" target="_blank" rel="noopener noreferrer" title="Open logs/trajectories">${content}</a>`;
+}
+
 function sortItems(a, b, field, direction) {
     const getValue = (item, field) => {
         switch (field) {
@@ -135,8 +149,8 @@ function renderLeaderboardTable(leaderboard) {
                                             <span class="model-name font-mono fw-medium">${item.name}</span>
                                         </div>
                                     </td>
-                                    <td class="centered-text text-center"><span class="number fw-medium text-primary">${cleanNum(item.resolved_full)}</span></td>
-                                    <td class="centered-text text-center"><span class="number fw-medium text-primary">${parseFloat(item.resolved_oss).toFixed(2)}</span></td>
+                                    <td class="centered-text text-center">${renderResolvedCell(item.resolved_full, getLogsTrajsValue(item))}</td>
+                                    <td class="centered-text text-center">${renderResolvedCell(item.resolved_oss, getLogsTrajsValue(item))}</td>
                                     <td class="centered-text text-center">
                                         ${item.logo && item.logo.length > 0 ? `
                                             <div style="display: flex; align-items: center;">
