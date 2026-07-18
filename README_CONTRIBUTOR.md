@@ -86,13 +86,15 @@ Add your entry to the `results` array:
 After your model entry exists in `data/leaderboards.json`, run `scripts/pack_logs.py` to pack the CVDP evaluation work directory (logs) and fill the corresponding `logs/trajs` field of `data/leaderboards.json` with a Hugging Face URL:
 
 ```bash
-python scripts/pack_logs.py -m "model-name" -p /path/to/work_dir
+python scripts/pack_logs.py -p /path/to/work_dir
+# Override model name when it must differ from composite_report.txt (e.g. effort variants)
+python scripts/pack_logs.py -p /path/to/work_dir -m "gpt-5.2 medium reasoning"
 # Optional: preview without writing
-python scripts/pack_logs.py -m "model-name" -p /path/to/work_dir --dry-run
+python scripts/pack_logs.py -p /path/to/work_dir --dry-run
 ```
 
-- `-m` must match the entry's `"name"` in `data/leaderboards.json` exactly. If no matching name exists, the script errors out.
 - `-p` is the CVDP evaluation `work*` directory (must contain `composite_report.txt`).
+- By default the model name is taken from the report's `Model/Agent:` line and must match a `"name"` in `data/leaderboards.json` exactly. Use optional `-m` to override when the JSON name differs (otherwise the script errors out).
 - Output goes under `./upload/<GUID>/` by default (`-u` to override). That tree holds `README.md`, the dataset-named folder, `composite_report.txt`, and `logs.tgz`.
 - `--dry-run` prints the planned GUID-named folder, paths, and JSON update without writing files.
 
