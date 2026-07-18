@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
-"""Pack one work* directory and update a single leaderboard logs/trajs link.
+"""Pack one CVDP work directory and update a single leaderboard logs/trajs link.
 
-Reads composite_report.txt from -p, maps Dataset -> leaderboard section, matches
--m to a result "name", creates/reuses a GUID under --upload-dir, writes README.md,
-copies the report, and packs logs.tgz. Updates data/leaderboards.json in place.
+Reads composite_report.txt from -p for dataset name and (by default) Model/Agent,
+maps dataset name -> leaderboard section, matches the model name to a result "name",
+creates/reuses a GUID-named directory under --upload-dir, writes README.md, copies the report,
+and packs logs.tgz. Updates data/leaderboards.json in place.
+
+-m is optional: when omitted, the model comes from the report's Model/Agent line.
+Use -m to override when that value does not match the JSON "name" (e.g. effort
+variants like "gpt-5.2 medium reasoning").
+-u/--upload-dir is optional for output and defaults to <PWD>/upload.
 
 Examples:
-  python scripts/pack_logs.py -m gpt-4o-mini -p /path/to/work_dir
-  python scripts/pack_logs.py -m gpt-4o-mini -p /path/to/work_dir --dry-run
-  python scripts/pack_logs.py -m gpt-4o-mini -p /path/to/work_dir -u /tmp/upload
+  python scripts/pack_logs.py -p /path/to/work_dir
+  python scripts/pack_logs.py -p /path/to/work_dir -m "gpt-5.2 medium reasoning"
+  python scripts/pack_logs.py -p /path/to/work_dir --dry-run
+  python scripts/pack_logs.py -p /path/to/work_dir -u /tmp/upload
 """
 
 from __future__ import annotations
@@ -44,13 +51,21 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Pack one work directory and update its leaderboard logs/trajs link."
     )
-    parser.add_argument("-m", "--model", required=True, help="exact leaderboard result name")
+    parser.add_argument(
+        "-m",
+        "--model",
+        default=None,
+        help=(
+            "exact leaderboard result name (overrides Model/Agent from "
+            "composite_report.txt)"
+        ),
+    )
     parser.add_argument(
         "-p",
         "--work-dir",
         required=True,
         type=Path,
-        help="path to the work* directory to pack",
+        help="path to the CVDP work directory to pack",
     )
     parser.add_argument(
         "-u",
@@ -72,6 +87,16 @@ def find_dataset_line(report_path: Path) -> str:
         if line.startswith("Dataset:"):
             return line[len("Dataset:") :].strip()
     raise SystemExit(f"error: no Dataset: line in {report_path}")
+
+
+def find_model_agent_line(report_path: Path) -> str:
+    for line in report_path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("Model/Agent:"):
+            value = line[len("Model/Agent:") :].strip()
+            if not value:
+                raise SystemExit(f"error: empty Model/Agent: line in {report_path}")
+            return value
+    raise SystemExit(f"error: no Model/Agent: line in {report_path}")
 
 
 def dataset_name_from_path(dataset_path: str) -> str:
@@ -210,10 +235,18 @@ def main() -> None:
         )
     category = DATASET_TO_CATEGORY[dataset]
 
+    report_model = find_model_agent_line(report)
+    if args.model is not None:
+        model = args.model
+        model_source = "-m"
+    else:
+        model = report_model
+        model_source = "Model/Agent"
+
     raw = LEADERBOARDS_JSON.read_text(encoding="utf-8")
     data = json.loads(raw)
     results = section_results(data, category)
-    item = find_unique_result(results, args.model)
+    item = find_unique_result(results, model)
 
     current = item.get(LOGS_FIELD, "")
     if current == "":
@@ -235,11 +268,13 @@ def main() -> None:
 
     print(f"work_dir:     {work_dir}")
     print(f"dataset:      {dataset} -> {category}")
-    print(f"model:        {args.model}")
+    print(f"model:        {model} (from {model_source})")
+    if model_source == "-m" and model != report_model:
+        print(f"report model: {report_model} (overridden)")
     print(f"GUID:         {guid} ({'new' if url_was_empty else 'from existing URL'})")
     print(f"HF URL:       {hf_url}")
     print(f"guid_dir:     {guid_dir}")
-    print(f"logs_dir:  {logs_dir}")
+    print(f"logs_dir:     {logs_dir}")
     print(f"README:       {readme_path}")
     print(f"logs.tgz:     {dest_tgz}")
     print(f"report:       {dest_report}")
@@ -257,7 +292,7 @@ def main() -> None:
         raw = set_logs_trajs_preserving_format(raw, category, item["name"], hf_url)
         item[LOGS_FIELD] = hf_url
         LEADERBOARDS_JSON.write_text(raw, encoding="utf-8")
-        print(f"set {category}/{args.model}: {hf_url}")
+        print(f"set {category}/{model}: {hf_url}")
     else:
         if str(current) != hf_url:
             raise SystemExit(
@@ -265,7 +300,7 @@ def main() -> None:
                 f"  existing: {current}\n"
                 f"  expected: {hf_url}"
             )
-        print(f"ok  {category}/{args.model}: already set")
+        print(f"ok  {category}/{model}: already set")
 
     # 2-5. Upload tree: README, dataset dir, report copy, logs.tgz.
     guid_dir.mkdir(parents=True, exist_ok=True)
