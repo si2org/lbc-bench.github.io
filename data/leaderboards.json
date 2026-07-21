@@ -405,7 +405,7 @@
             "resolved_full": null,
             "resolved_oss": 64.42,
             "date": "2026-05-10",
-            "logs/trajs": "",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/86f860c3-6e42-4d09-918c-ed17030d8349",
             "checked": false,
             "release": "1.1.0",
             "tags": [
