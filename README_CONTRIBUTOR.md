@@ -40,6 +40,7 @@ Locate the appropriate leaderboard section:
 Add your entry to the `results` array:
 ```json
 {
+    "id": "6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999",
     "name": "model-name",
     "logo": ["./img/model-logo.png"],
     "site": "https://your-organization-site",
@@ -63,9 +64,19 @@ Add your entry to the `results` array:
 }
 ```
 
+Generate a fresh GUID for the `id` field before adding a new entry. For example:
+```bash
+python -c "import uuid; print(uuid.uuid4())"
+```
+or (if available on your system):
+```bash
+uuidgen
+```
+
 #### Field Descriptions
 | Field | Description | Notes |
 |-------|-------------|-------|
+| `id` | Unique GUID for this result object | Required. Create a fresh GUID for each new entry |
 | `name` | Model name | Required |
 | `logo` | Logo path array | Use existing or add new to `./img/` |
 | `site` | Organization URL | Who ran the benchmark |
@@ -86,15 +97,15 @@ Add your entry to the `results` array:
 After your model entry exists in `data/leaderboards.json`, run `scripts/pack_logs.py` to pack the CVDP evaluation work directory (logs) and fill the corresponding `logs/trajs` field of `data/leaderboards.json` with a Hugging Face URL:
 
 ```bash
-python scripts/pack_logs.py -p /path/to/work_dir
-# Override model name when it must differ from composite_report.txt (e.g. effort variants)
-python scripts/pack_logs.py -p /path/to/work_dir -m "gpt-5.2 medium reasoning"
+python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999
 # Optional: preview without writing
-python scripts/pack_logs.py -p /path/to/work_dir --dry-run
+python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999 --dry-run
 ```
 
 - `-p` is the CVDP evaluation `work*` directory (must contain `composite_report.txt`).
-- By default the model name is taken from the report's `Model/Agent:` line and must match a `"name"` in `data/leaderboards.json` exactly. Use optional `-m` to override when the JSON name differs (otherwise the script errors out).
+- `-i/--id` is required and must match exactly one object `id` in `data/leaderboards.json`.
+- `id` values must be globally unique in `data/leaderboards.json` (the script errors out on duplicates or no match).
+- If `logs/trajs` is empty, the script sets it to a Hugging Face URL ending with that `id` GUID. If `logs/trajs` is already set, it is left as is.
 - Output goes under `./upload/<GUID>/` by default (`-u` to override). That tree holds `README.md`, the dataset-named folder, `composite_report.txt`, and `logs.tgz`.
 - `--dry-run` prints the planned GUID-named folder, paths, and JSON update without writing files.
 

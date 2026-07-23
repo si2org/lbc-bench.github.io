@@ -38,6 +38,7 @@ LEADERBOARDS_SCHEMA = {
                                 "resolved_oss": {"type": "number"},
                                 "date": {"type": "string"},
                                 "logs/trajs": {"type": "string"},
+                                "id": {"type": "string"},
                                 "notes": {"type": "string"},
                                 "release": {"type": "string"},
                                 "checked": {"type": "boolean"},
@@ -49,7 +50,7 @@ LEADERBOARDS_SCHEMA = {
                             "required": [
                                 "name", "logo", "site", "folder", "cost", 
                                 "resolved_full", "resolved_oss", "date", 
-                                "logs/trajs", "checked", "tags"
+                                "logs/trajs", "id", "checked", "tags"
                             ],
                             "additionalProperties": False
                         }

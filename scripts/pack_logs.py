@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 """Pack one CVDP work directory and update a single leaderboard logs/trajs link.
 
-Reads composite_report.txt from -p for dataset name and (by default) Model/Agent,
-maps dataset name -> leaderboard section, matches the model name to a result "name",
-creates/reuses a GUID-named directory under --upload-dir, writes README.md, copies the report,
-and packs logs.tgz. Updates data/leaderboards.json in place.
+Reads composite_report.txt from -p for dataset name, maps dataset name ->
+leaderboard section, and finds exactly one result object by required -i/--id.
+The id is treated as the GUID for upload naming and URL generation.
 
--m is optional: when omitted, the model comes from the report's Model/Agent line.
-Use -m to override when that value does not match the JSON "name" (e.g. effort
-variants like "gpt-5.2 medium reasoning").
+If logs/trajs is empty for the matched object, this script sets it to the Hugging
+Face URL derived from the id GUID. If logs/trajs already has a value, it is left
+unchanged (but must match the same GUID).
+
 -u/--upload-dir is optional for output and defaults to <PWD>/upload.
 
 Examples:
-  python scripts/pack_logs.py -p /path/to/work_dir
-  python scripts/pack_logs.py -p /path/to/work_dir -m "gpt-5.2 medium reasoning"
-  python scripts/pack_logs.py -p /path/to/work_dir --dry-run
-  python scripts/pack_logs.py -p /path/to/work_dir -u /tmp/upload
+  python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999
+  python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999 --dry-run
+  python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999 -u /tmp/upload
 """
 
 from __future__ import annotations
@@ -52,13 +51,10 @@ def parse_args() -> argparse.Namespace:
         description="Pack one work directory and update its leaderboard logs/trajs link."
     )
     parser.add_argument(
-        "-m",
-        "--model",
-        default=None,
-        help=(
-            "exact leaderboard result name (overrides Model/Agent from "
-            "composite_report.txt)"
-        ),
+        "-i",
+        "--id",
+        required=True,
+        help="GUID id of the target result object in data/leaderboards.json",
     )
     parser.add_argument(
         "-p",
@@ -89,16 +85,6 @@ def find_dataset_line(report_path: Path) -> str:
     raise SystemExit(f"error: no Dataset: line in {report_path}")
 
 
-def find_model_agent_line(report_path: Path) -> str:
-    for line in report_path.read_text(encoding="utf-8").splitlines():
-        if line.startswith("Model/Agent:"):
-            value = line[len("Model/Agent:") :].strip()
-            if not value:
-                raise SystemExit(f"error: empty Model/Agent: line in {report_path}")
-            return value
-    raise SystemExit(f"error: no Model/Agent: line in {report_path}")
-
-
 def dataset_name_from_path(dataset_path: str) -> str:
     """
     From .../cvdp_v1.0.2_<dataset>[.copilot_transformed].jsonl extract <dataset>.
@@ -117,27 +103,36 @@ def dataset_name_from_path(dataset_path: str) -> str:
     return match.group(1)
 
 
-def section_results(data: dict, section_name: str) -> list[dict]:
+def find_unique_result_by_id(data: dict, object_id: str) -> tuple[str, dict]:
+    matches: list[tuple[str, dict]] = []
     for board in data.get("leaderboards", []):
-        if board.get("name") == section_name:
-            return board["results"]
-    raise SystemExit(f"error: section {section_name!r} not found in {LEADERBOARDS_JSON}")
-
-
-def find_unique_result(results: list[dict], model: str) -> dict:
-    matches = [item for item in results if str(item.get("name", "")).strip() == model]
+        board_name = str(board.get("name", ""))
+        for item in board.get("results", []):
+            if str(item.get("id", "")).strip() == object_id:
+                matches.append((board_name, item))
     if not matches:
-        raise SystemExit(f"error: no name match for model {model!r}")
+        raise SystemExit(f"error: no id match for id {object_id!r}")
     if len(matches) > 1:
-        raise SystemExit(f"error: multiple name matches for model {model!r}")
+        sections = ", ".join(section for section, _ in matches)
+        raise SystemExit(
+            f"error: id {object_id!r} is not unique in {LEADERBOARDS_JSON} "
+            f"(matched sections: {sections})"
+        )
     return matches[0]
+
+
+def parse_guid(value: str, source: str) -> str:
+    try:
+        return str(uuid.UUID(value))
+    except ValueError as exc:
+        raise SystemExit(f"error: invalid GUID in {source}: {value!r}") from exc
 
 
 def guid_from_existing_url(url: str) -> str:
     guid = url.rstrip("/").rsplit("/", 1)[-1]
     if not guid:
         raise SystemExit(f"error: could not extract GUID from existing {LOGS_FIELD}: {url!r}")
-    return guid
+    return parse_guid(guid, LOGS_FIELD)
 
 
 def results_array_span(raw: str, section_name: str) -> tuple[int, int]:
@@ -173,21 +168,21 @@ def results_array_span(raw: str, section_name: str) -> tuple[int, int]:
 
 
 def set_logs_trajs_preserving_format(
-    raw: str, section_name: str, exact_name: str, new_url: str
+    raw: str, section_name: str, exact_id: str, new_url: str
 ) -> str:
     """Replace only an empty logs/trajs value for one result; keep other text."""
     arr_start, arr_end = results_array_span(raw, section_name)
     section = raw[arr_start:arr_end]
-    name_json = json.dumps(exact_name)
+    id_json = json.dumps(exact_id)
     pattern = re.compile(
-        rf'(\{{[^{{}}]*"name"\s*:\s*{re.escape(name_json)}[^{{}}]*"{re.escape(LOGS_FIELD)}"\s*:\s*)""',
+        rf'(\{{[^{{}}]*"id"\s*:\s*{re.escape(id_json)}[^{{}}]*"{re.escape(LOGS_FIELD)}"\s*:\s*)""',
         re.DOTALL,
     )
     match = pattern.search(section)
     if not match:
         raise SystemExit(
             f"error: could not surgically update empty {LOGS_FIELD} for "
-            f"{section_name}/{exact_name!r}"
+            f"{section_name}/id={exact_id!r}"
         )
     new_section = (
         section[: match.start()]
@@ -235,25 +230,28 @@ def main() -> None:
         )
     category = DATASET_TO_CATEGORY[dataset]
 
-    report_model = find_model_agent_line(report)
-    if args.model is not None:
-        model = args.model
-        model_source = "-m"
-    else:
-        model = report_model
-        model_source = "Model/Agent"
-
     raw = LEADERBOARDS_JSON.read_text(encoding="utf-8")
     data = json.loads(raw)
-    results = section_results(data, category)
-    item = find_unique_result(results, model)
+    result_section, item = find_unique_result_by_id(data, args.id)
+    if result_section != category:
+        raise SystemExit(
+            f"error: id {args.id!r} belongs to section {result_section!r}, "
+            f"but report dataset maps to section {category!r}"
+        )
 
     current = item.get(LOGS_FIELD, "")
+    guid_from_id = parse_guid(str(item.get("id", "")).strip(), "id")
     if current == "":
-        guid = str(uuid.uuid4())
+        guid = guid_from_id
         url_was_empty = True
     else:
         guid = guid_from_existing_url(str(current))
+        if guid != guid_from_id:
+            raise SystemExit(
+                f"error: existing {LOGS_FIELD} GUID does not match id\n"
+                f"  id:       {guid_from_id}\n"
+                f"  {LOGS_FIELD}: {current}"
+            )
         url_was_empty = False
 
     hf_url = f"{HF_BASE.rstrip('/')}/{guid}"
@@ -268,10 +266,9 @@ def main() -> None:
 
     print(f"work_dir:     {work_dir}")
     print(f"dataset:      {dataset} -> {category}")
-    print(f"model:        {model} (from {model_source})")
-    if model_source == "-m" and model != report_model:
-        print(f"report model: {report_model} (overridden)")
-    print(f"GUID:         {guid} ({'new' if url_was_empty else 'from existing URL'})")
+    print(f"id:           {args.id}")
+    print(f"name:         {item.get('name', '')}")
+    print(f"GUID:         {guid} ({'from id' if url_was_empty else 'from existing URL'})")
     print(f"HF URL:       {hf_url}")
     print(f"guid_dir:     {guid_dir}")
     print(f"logs_dir:     {logs_dir}")
@@ -289,10 +286,10 @@ def main() -> None:
 
     # 1. Update logs/trajs in place if empty.
     if url_was_empty:
-        raw = set_logs_trajs_preserving_format(raw, category, item["name"], hf_url)
+        raw = set_logs_trajs_preserving_format(raw, category, str(item["id"]), hf_url)
         item[LOGS_FIELD] = hf_url
         LEADERBOARDS_JSON.write_text(raw, encoding="utf-8")
-        print(f"set {category}/{model}: {hf_url}")
+        print(f"set {category}/id={args.id}: {hf_url}")
     else:
         if str(current) != hf_url:
             raise SystemExit(
@@ -300,7 +297,7 @@ def main() -> None:
                 f"  existing: {current}\n"
                 f"  expected: {hf_url}"
             )
-        print(f"ok  {category}/{model}: already set")
+        print(f"ok  {category}/id={args.id}: already set")
 
     # 2-5. Upload tree: README, dataset dir, report copy, logs.tgz.
     guid_dir.mkdir(parents=True, exist_ok=True)
