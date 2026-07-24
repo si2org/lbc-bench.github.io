@@ -4,6 +4,7 @@
         "name": "code-generation-limited-context",
         "results": [
         {
+            "id": "6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999",
             "name": "o4-mini",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -27,6 +28,7 @@
             ]
         },
         {
+            "id": "9159bfb2-5550-4b7e-acd1-bfd88a418a31",
             "name": "gpt-4o-mini",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -50,6 +52,7 @@
             ]
         },
         {
+            "id": "3888fc16-ca32-4fbb-9646-e6e03774955f",
             "name": "Meta-Llama-3-1-405B-Instruct",
             "logo": [
                 "./img/llama.png"
@@ -73,6 +76,7 @@
             ]
         },
         {
+            "id": "068962ad-6aab-44d3-9ab8-345262a8651c",
             "name": "Llama-3-3-70B-Instruct",
             "logo": [
                 "./img/llama.png"
@@ -96,6 +100,7 @@
             ]
         },
         {
+            "id": "8e1b09c9-96eb-4ce3-8601-abdb304bb9eb",
             "name": "claude-sonnet-4-5-20250929",
             "logo": [
                 "./img/Claude_AI_symbol.svg"
@@ -119,6 +124,7 @@
             ]
         },
         {
+            "id": "1f92dc65-245a-461e-a214-019bd890b803",
             "name": "claude-sonnet-4-20250514",
             "logo": [
                 "./img/Claude_AI_symbol.svg"
@@ -142,6 +148,7 @@
             ]
         },
         {
+            "id": "ca9c2611-c820-410b-8564-952f496b9d84",
             "name": "gpt-5-mini",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -165,6 +172,7 @@
             ]
         },
         {
+            "id": "a41cf8a8-cc83-416c-bb02-a4e619ca7725",
             "name": "gpt-5.2 medium reasoning",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -188,6 +196,7 @@
             ]
         },
         {
+            "id": "608395ba-5002-4355-85be-68b2e665f09b",
             "name": "gpt-5.2 high reasoning",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -211,6 +220,7 @@
             ]
         },
         {
+            "id": "cf0a9f6f-6f46-4077-8219-d7cc33bbeaaf",
             "name": "gpt-5.2 low reasoning",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -234,6 +244,7 @@
             ]
         },        
         {
+            "id": "d577bddb-06dd-428a-976f-a4bf3637b2be",
             "name": "Gemini 3.1 Pro Preview",
             "logo": [
                 "./img/gemini-color.png"
@@ -257,6 +268,7 @@
             ]
         },
         {
+            "id": "08482225-1a7b-4ddd-b882-8ca6c27d66a2",
             "name": "Claude Opus 4.6",
             "logo": [
                 "./img/Claude_AI_symbol.svg"
@@ -280,6 +292,7 @@
             ]
         },
         {
+            "id": "26b2db36-e637-4bf2-a385-b2923bc93adc",
             "name": "Claude Sonnet 4.6",
             "logo": [
                 "./img/Claude_AI_symbol.svg"
@@ -303,6 +316,7 @@
             ]
         },
         {
+            "id": "2fe05d31-812f-42ab-bf29-b649e23a6214",
             "name": "GPT-5.3 Codex",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -326,6 +340,7 @@
             ]
         },
         {
+            "id": "70a9205a-1964-431d-af28-a57c2236c56d",
             "name": "Gemini 2.5 Pro",
             "logo": [
                 "./img/gemini-color.png"
@@ -349,6 +364,7 @@
             ]
         },
         {
+            "id": "84c2e566-8b40-4056-8717-7a4f7276ca4e",
             "name": "Kimi K2.5",
             "logo": [
                 "/img/Kimi-logo-2025.png"
@@ -372,6 +388,7 @@
             ]
         },
         {
+            "id": "219dbd33-09d9-4245-8cf4-085c1cf5a535",
             "name": "MiniMax M2.5",
             "logo": [
                 "./img/MiniMax.png"
@@ -395,6 +412,7 @@
             ]
         },
         {
+            "id": "86f860c3-6e42-4d09-918c-ed17030d8349",
             "name": "Gemini 3.1 Pro Preview",
             "logo": [
                 "./img/gemini-color.png"
@@ -418,6 +436,7 @@
             ]
         },
         {
+            "id": "5f9d91ec-0429-4770-b165-3387920df270",
             "name": "Gemini 3.1 Flash Lite Preview",
             "logo": [
                 "./img/gemini-color.png"
@@ -446,6 +465,7 @@
         "name": "code-comprehension",
         "results": [
         {
+            "id": "f0bcf69c-5abf-4bc7-b5c0-3feb02cff7be",
             "name": "o4-mini",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -469,6 +489,7 @@
             ]
         },
         {
+            "id": "741309e5-3616-448f-a254-841cc93ee86c",
             "name": "gpt-4o-mini",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -492,6 +513,7 @@
             ]
         },
         {
+            "id": "63457e50-161e-4165-b747-5266d172b789",
             "name": "Meta-Llama-3-1-405B-Instruct",
             "logo": [
                 "./img/llama.png"
@@ -515,6 +537,7 @@
             ]
         },
         {
+            "id": "2f7fd37a-7c5c-4d96-a7fa-05d064b8768e",
             "name": "Llama-3-3-70B-Instruct",
             "logo": [
                 "./img/llama.png"
@@ -538,6 +561,7 @@
             ]
         },
         {
+            "id": "6acb4a65-945e-4925-bd51-fc73a080575b",
             "name": "claude-sonnet-4-5-20250929",
             "logo": [
                 "./img/Claude_AI_symbol.svg"
@@ -561,6 +585,7 @@
             ]
         },
         {
+            "id": "a1a38571-6a6d-4bd1-99f3-e11666ebbfc5",
             "name": "claude-sonnet-4-20250514",
             "logo": [
                 "./img/Claude_AI_symbol.svg"
@@ -584,6 +609,7 @@
             ]
         },
         {
+            "id": "7adc49f4-e6ab-47c8-9261-83159229320c",
             "name": "gpt-5-mini",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -607,6 +633,7 @@
             ]
         },
         {
+            "id": "2806c934-5b46-4e1b-a237-83c7987cd5ca",
             "name": "gpt-5.2 medium reasoning",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -630,6 +657,7 @@
             ]
         },
         {
+            "id": "57c6d4cf-7d00-4556-acb4-2795f8120e57",
             "name": "gpt-5.2 low reasoning",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -653,6 +681,7 @@
             ]
         },
         {
+            "id": "3342510e-563d-4688-8bb0-863de345fd00",
             "name": "gpt-5.2 high reasoning",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -676,6 +705,7 @@
             ]
         },
         {
+            "id": "3d33ca74-eca4-4208-b894-b14f10250e90",
             "name": "Claude Opus 4.6",
             "logo": [
                 "./img/Claude_AI_symbol.svg"
@@ -700,6 +730,7 @@
             "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
+            "id": "5d8a00a6-a8ad-4e35-8d4e-7f79e6c6c3f9",
             "name": "Claude Sonnet 4.6",
             "logo": [
                 "./img/Claude_AI_symbol.svg"
@@ -724,6 +755,7 @@
             "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
+            "id": "f3f9362d-43a8-4801-b9e5-7c01c68851ba",
             "name": "GPT-5.3 Codex",
             "logo": [
                 "./img/OpenAI_logo_symbol.png"
@@ -748,6 +780,7 @@
             "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
+            "id": "549b54ed-c214-4f12-8914-d63e5cf9c8c7",
             "name": "Gemini 2.5 Pro",
             "logo": [
                 "./img/gemini-color.png"
@@ -772,6 +805,7 @@
             "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
+            "id": "6f69f265-081d-4e37-8ea1-40673902f446",
             "name": "Gemini 3.1 Pro Preview",
             "logo": [
                 "./img/gemini-color.png"
@@ -796,6 +830,7 @@
             "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
+            "id": "cb8150dc-338b-4ede-acfb-a6190802c732",
             "name": "Kimi K2.5",
             "logo": [
                 "/img/Kimi-logo-2025.png"
@@ -820,6 +855,7 @@
             "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
+            "id": "f3c608e3-31fb-4a3c-b7b0-cbfd4c8e0861",
             "name": "MiniMax M2.5",
             "logo": [
                 "./img/MiniMax.png"
@@ -844,6 +880,7 @@
             "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
+            "id": "f0f5056b-5516-4b73-bc7b-8e0c6d427c37",
             "name": "Gemini 3.1 Pro Preview",
             "logo": [
                 "./img/gemini-color.png"
@@ -868,6 +905,7 @@
             "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
+            "id": "efd72f25-7dbe-44f1-b0ec-d1887e99d50b",
             "name": "Gemini 3.1 Flash Lite Preview",
             "logo": [
                 "./img/gemini-color.png"

@@ -99,6 +99,8 @@ The site is statically generated and can be hosted on GitHub Pages or any other 
 │   └── viewer.js          # Results viewer functionality
 ├── Makefile               # Automation for common tasks
 ├── pyproject.toml         # Python project configuration and dependencies
+├── scripts/               # Utility scripts for data/log handling
+│   └── pack_logs.py       # Packs CVDP run logs and updates logs/trajs by result id
 └── templates/             # Jinja2 templates
     ├── base.html          # Base template with common structure
     ├── _leaderboard_table.html  # Reusable leaderboard table component
@@ -145,6 +147,7 @@ Templates use Jinja2 syntax for:
 The leaderboard data follows a specific flow from JSON to rendered HTML:
 
 1. **Data Source**: All leaderboard data is stored in `data/leaderboards.json`. This JSON file contains an array of leaderboards under the key `"leaderboards"`, with each leaderboard having a `"name"` (e.g., "code-generation-limited-context", etc.) and a list of `"results"` entries.
+   Each CVDP result object includes a required unique `"id"` GUID used by `scripts/pack_logs.py` to locate the entry and populate `"logs/trajs"` URLs.
 
 2. **Data Loading**: During the build process in `build.py`, the JSON file is loaded and passed to the Jinja2 templates as the `leaderboards` variable:
    ```python
