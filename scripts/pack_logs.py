@@ -37,6 +37,8 @@ LOGS_FIELD = "logs/trajs"
 DATASET_TO_CATEGORY = {
     "agentic_code_generation_commercial": "code-generation-limited-context",
     "agentic_code_generation_no_commercial": "code-generation-limited-context",
+    "agentic_heavy_code_generation_commercial": "code-generation-heavy-context",
+    "agentic_heavy_code_generation_no_commercial": "code-generation-heavy-context",
     "nonagentic_code_generation_commercial": "code-generation-limited-context",
     "nonagentic_code_generation_no_commercial": "code-generation-limited-context",
     "nonagentic_code_comprehension": "code-comprehension",
@@ -205,6 +207,8 @@ def pack_contents(src_dir: Path, dest_tgz: Path) -> None:
     dest_tgz.parent.mkdir(parents=True, exist_ok=True)
     with tarfile.open(dest_tgz, "w:gz") as tar:
         for entry in sorted(src_dir.iterdir()):
+            if entry.name == "git_cache":
+                continue
             tar.add(entry, arcname=entry.name)
 
 
