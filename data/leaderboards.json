@@ -458,8 +458,33 @@
                 "Evaluation style: non-agentic",
                 "Single turn: true"
             ]
+        },
+        {
+            "id": "14cf89d9-cd08-4c8f-9762-efdc1487cc37",
+            "name": "Claude Fable 5",
+            "logo": [
+                "./img/Claude_AI_symbol.svg"
+            ],
+            "site": "https://github.com/Dash-Crystal",
+            "folder": "",
+            "cost": null,
+            "resolved_full": null,
+            "resolved_oss": 63.25,
+            "date": "2026-07-24",
+            "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/14cf89d9-cd08-4c8f-9762-efdc1487cc37",
+            "notes": "Model snapshot: claude-fable-5 (adaptive thinking, default effort). Dataset: cvdp_v1.1.0_nonagentic_code_generation_no_commercial, 302 problems, pass@1, single run, 4 threads. Harness: NVlabs cvdp_benchmark with a custom Anthropic model factory; simulator: Icarus Verilog 13.0 (nvidia/cvdp-sim:v1.0.0). Result: 191/302 problems passed (63.25%). Per-test token usage/cost not tracked by the harness.",
+            "checked": false,
+            "release": "1.1.0",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: N/A",
+                "Model: claude-fable-5",
+                "Org: Anthropic",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ]
         }
-      ]
+        ]
     },
     {
         "name": "code-comprehension",
