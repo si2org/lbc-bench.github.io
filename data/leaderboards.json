@@ -483,9 +483,10 @@
             ]
         },
         {
+            "id": "38b313d8-fd6c-498e-af17-f88a04399d20",
             "name": "DeepSeek v4 Pro xhigh",
             "logo": ["./img/deepseek-logo.svg"],
-            "site": "https://si2.org",
+            "site": "https://nvidia.com",
             "folder": "",
             "cost": null,
             "resolved_full": 39.43,
@@ -998,9 +999,10 @@
             ]
         },
         {
+            "id": "a60257ab-c1e8-4c52-bf8e-9c1fb6ab0e9b",
             "name": "DeepSeek v4 Pro xhigh",
             "logo": ["./img/deepseek-logo.svg"],
-            "site": "https://si2.org",
+            "site": "https://nvidia.com",
             "folder": "",
             "cost": null,
             "resolved_full": 74.66,
