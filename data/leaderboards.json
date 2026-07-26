@@ -460,9 +460,10 @@
             ]
         },
         {
+            "id": "1bf1e404-bcd3-45b9-b5e0-8ee5ef82f0df",
             "name": "Qwen3.5 397b A17B xhigh",
             "logo": ["./img/qwen-logo.svg"],
-            "site": "https://si2.org",
+            "site": "https://nvidia.com",
             "folder": "",
             "cost": null,
             "resolved_full": 25.93,
@@ -952,9 +953,10 @@
             "notes": "Judge model: gemini-3.1-pro-preview"
         },
         {
+            "id": "4d507ff5-1b69-4800-b435-1d1416293695",
             "name": "Qwen3.5 397b A17B xhigh",
             "logo": ["./img/qwen-logo.svg"],
-            "site": "https://si2.org",
+            "site": "https://nvidia.com",
             "folder": "",
             "cost": null,
             "resolved_full": 74.33,
