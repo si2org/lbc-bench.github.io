@@ -551,9 +551,33 @@
                 "Evaluation style: agentic",
                 "Single turn: false"
             ]
+        },
+        {
+            "id": "5697ab4a-91f3-4ff1-9b96-e9b54cd2340a",
+            "name": "GPT-5.6 Sol",
+            "logo": [
+                "./img/OpenAI_logo_symbol.png"
+            ],
+            "site": "https://github.com/Dash-Crystal",
+            "folder": "",
+            "cost": null,
+            "resolved_full": null,
+            "resolved_oss": 62.94,
+            "date": "2026-07-26",
+            "logs/trajs": "",
+            "notes": "Model snapshot: gpt-5.6-sol (OpenAI API, default settings). Harness: NVlabs cvdp_benchmark; simulator: Icarus Verilog (nvidia/cvdp-sim:v1.0.0). Runs (both cvdp v1.1.0, pass@1, single run): (1) nonagentic_code_generation_no_commercial, 302 problems, 196 passed (64.90%); (2) agentic_code_generation_no_commercial evaluated non-agentically via --force-copilot per Si2 guidance, 92 problems, 52 passed (56.52%). Combined OSS: 248/394 = 62.94%. Per-test cost not tracked.",
+            "checked": false,
+            "release": "1.1.0",
+            "tags": [
+                "Open Source Tool: Icarus",
+                "Commercial Tool: N/A",
+                "Model: gpt-5.6-sol",
+                "Org: OpenAI",
+                "Evaluation style: non-agentic",
+                "Single turn: true"
+            ]
         }
-
-      ]
+        ]
     },
     {
         "name": "code-comprehension",
