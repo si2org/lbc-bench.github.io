@@ -52,11 +52,12 @@ Add your entry to the `results` array:
     "logs/trajs": "",
     "notes": "Tokens used: XXXX\nModel snapshot: XXXX",
     "checked": false,
-    "release": "1.0.2",
+    "release": "1.1.0",
     "tags": [
         "Open Source Tool: tool-name",
         "Commercial Tool: tool-name",
         "Model: model-name",
+        "Agnet:",
         "Org: your-org",
         "Evaluation style: non-agentic",
         "Single turn: true"
@@ -80,7 +81,7 @@ uuidgen
 | `name` | Model name | Required |
 | `logo` | Logo path array | Use existing or add new to `./img/` |
 | `site` | Organization URL | Who ran the benchmark |
-| `cost` | Average cost per test in USD | Numeric value - <br>`null` if cost unavailable |
+| `cost` | Average cost per test in USD.  For instance if it costs $C to run 5 samples and there are 800 tests in total, this value will be C/(5 x 800)  | Numeric value - <br>`null` if cost unavailable |
 | `resolved_full` | Pass rate<sup>&dagger;</sup> | Percentage - <br>`null` if commercial simulator unavailable |
 | `resolved_oss` | Pass rate<sup>&Dagger;</sup> | Percentage |
 | `date` | Run date | Format: YYYY-MM-DD |
@@ -88,7 +89,7 @@ uuidgen
 | `checked` | Validation status | Set to `false` for new submissions |
 | `release` | Benchmark version | Current release number |
 | `tags` |  Properties (filterable) | Follow format shown above |
-| `notes` | Detailed run information | Token usage, runtime, model snapshot info, etc. Populating this field is **HIGHLY** recommended |
+| `notes` | Detailed run information | Token usage, runtime, model and agent info, number of samples, etc. Use \n to break long lines. Populating this field is **HIGHLY** recommended |
 
 <sup>†</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) and commercial simulator dataset run.<br>
 <sup>‡</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) dataset run.<br>
