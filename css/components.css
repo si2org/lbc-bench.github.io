@@ -368,6 +368,51 @@ button:focus,
   line-height: 1;
 }
 
+.info-marker {
+  display: inline-block;
+  font-weight: var(--weight-semibold, 600);
+  line-height: 1;
+}
+
+.info-marker-symbol {
+  font-size: 1.35em;
+}
+
+.info-marker-asterisk {
+  font-size: 1.2em;
+}
+
+.info-marker-triangle {
+  font-size: 1.15em;
+}
+
+.info-marker-image {
+  width: 1.35em;
+  height: 1.35em;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.marker-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1.5px solid var(--color-border);
+  text-align: left;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.marker-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 /* Column sizing for tables */
 .table th:first-child,
 .table td:first-child {
@@ -935,4 +980,30 @@ button:focus,
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-decoration-color: var(--color-text-muted);
+}
+
+.col-header-tooltip {
+  position: fixed;
+  z-index: var(--z-tooltip);
+  max-width: 22rem;
+  padding: 0.65rem 0.8rem;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  font-size: 0.8125rem;
+  font-weight: var(--weight-normal, 400);
+  line-height: 1.45;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%);
+  transition: opacity var(--transition-fast);
+}
+
+.col-header-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
 }

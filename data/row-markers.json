@@ -1,0 +1,24 @@
+{
+  "markers": [
+    {
+      "id": "asterisk",
+      "symbol": "✻",
+      "color": "#e8b400",
+      "title": "Partial Log Submission"
+    },
+    {
+      "id": "triangle",
+      "symbol": "▼",
+      "color": "#6a8fb5",
+      "title": "Sample Count < 5"
+    }
+  ],
+  "entries": {
+    "5697ab4a-91f3-4ff1-9b96-e9b54cd2340a": {
+      "markers": ["asterisk", "triangle"]
+    },
+    "14cf89d9-cd08-4c8f-9762-efdc1487cc37": {
+      "markers": ["asterisk", "triangle"]
+    }
+  }
+}

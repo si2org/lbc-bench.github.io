@@ -65,6 +65,50 @@ LEADERBOARDS_SCHEMA = {
     "additionalProperties": False
 }
 
+ROW_MARKERS_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "markers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "symbol": {"type": "string"},
+                    "color": {"type": "string"},
+                    "title": {"type": "string"}
+                },
+                "required": ["id", "symbol", "color", "title"],
+                "additionalProperties": False
+            }
+        },
+        "entries": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "markers": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "minItems": 1
+                    }
+                },
+                "required": ["markers"],
+                "additionalProperties": False
+            }
+        }
+    },
+    "required": ["markers", "entries"],
+    "additionalProperties": False
+}
+
+CHECKED_MARKER = {
+    "symbol": "✅",
+    "image": "./img/SI2_Logo_Circle_White.png",
+    "title": "Evaluated by Si2"
+}
+
+
 def validate_leaderboards_data(data):
     """Validate the leaderboards data against the schema"""
     try:
@@ -78,6 +122,44 @@ def validate_leaderboards_data(data):
     except Exception as e:
         print(f"✗ Unexpected error during validation: {e}")
         return False
+
+
+def validate_row_markers_data(data, leaderboards):
+    """Validate the row markers data against the schema and known IDs."""
+    try:
+        validate(instance=data, schema=ROW_MARKERS_SCHEMA)
+    except ValidationError as e:
+        print(f"✗ Validation error in row-markers.json: {e.message}")
+        print(f"Path: {' -> '.join(str(p) for p in e.path)}")
+        return False
+    except Exception as e:
+        print(f"✗ Unexpected error during row-markers validation: {e}")
+        return False
+
+    known_ids = set()
+    boards = leaderboards["leaderboards"] if isinstance(leaderboards, dict) else leaderboards
+    for leaderboard in boards:
+        for entry in leaderboard.get("results", []):
+            if entry.get("id"):
+                known_ids.add(entry["id"])
+
+    marker_names = [marker.get("id") for marker in data.get("markers", [])]
+    if len(marker_names) != len(set(marker_names)):
+        print("✗ Duplicate marker id in row-markers.json")
+        return False
+    marker_name_set = set(marker_names)
+    for guid, row_marker in data.get("entries", {}).items():
+        if guid not in known_ids:
+            print(f"✗ Unknown GUID in row-markers.json entries: {guid}")
+            return False
+        for marker_name in row_marker.get("markers", []):
+            if marker_name not in marker_name_set:
+                print(f"✗ Unknown marker '{marker_name}' on GUID {guid}")
+                return False
+
+    print("✓ row-markers.json format is valid")
+    return True
+
 
 def get_pages():
     pages = {}
@@ -103,6 +185,17 @@ def main() -> None:
     # Validate the data format
     if not validate_leaderboards_data(leaderboards):
         print("Build failed due to invalid data format")
+        sys.exit(1)
+
+    try:
+        with open(ROOT / "data/row-markers.json", "r") as f:
+            row_markers = json.load(f)
+    except (json.JSONDecodeError, FileNotFoundError) as e:
+        print(f"✗ Error loading row-markers.json: {e}")
+        sys.exit(1)
+
+    if not validate_row_markers_data(row_markers, leaderboards):
+        print("Build failed due to invalid row-markers format")
         sys.exit(1)
     
     # set up Jinja environment
@@ -178,6 +271,8 @@ def main() -> None:
             leaderboard_tags=leaderboard_tags,  # New per-leaderboard tags
             all_releases=all_releases,  # Global releases for filtering
             leaderboard_releases=leaderboard_releases,  # Per-leaderboard releases
+            row_markers=row_markers,
+            checked_marker=CHECKED_MARKER,
         )
         (DIST / out_name).write_text(html)
         print(f"built {out_name}")
