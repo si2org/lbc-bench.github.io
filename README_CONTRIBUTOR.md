@@ -115,7 +115,7 @@ Leave `"logs/trajs"` empty for now if you will fill it with `pack_logs.py` in th
 | `checked` | Si2 verification flag | Must be `false` for new submissions |
 | `release` | Benchmark version | Current release number |
 | `tags` | Filterable properties | Follow the example above; include `Model:` and `Agent:` |
-| `notes` | Detailed run information | Should include tokens, runtime, model/agent, sample count, etc. |
+| `notes` | Detailed run information | Provide model/agent information, token counts, sample size, runtime, and any other relevant metadata to help interpret the results. |
 
 <sup>†</sup> Pass rate over **open-source and commercial** simulator runs: (Total Passed Problems / Total Attempted Problems) from the “Overall Problem Statistics” table in each evaluated report. Use `null` if commercial simulator results are unavailable.<br>
 <sup>‡</sup> Pass rate over **open-source (OSS) only** simulator runs: same formula and table, OSS datasets only.
