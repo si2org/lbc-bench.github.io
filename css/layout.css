@@ -347,6 +347,7 @@
 
 .sidebar-footer a i {
   margin-right: var(--size-xs);
+  font-size: 1.25rem;
 }
 
 /* Theme Toggle Button */
