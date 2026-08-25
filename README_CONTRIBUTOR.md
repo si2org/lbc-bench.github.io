@@ -1,43 +1,73 @@
 # Contributing to LBC Benchmark Leaderboard
 
 ## Overview
-This guide explains how to add or update benchmark results in the LBC leaderboard by submitting changes to `data/leaderboards.json`.
+
+This guide explains how to add or update benchmark results on the LBC leaderboard by editing `data/leaderboards.json` and opening a pull request.
 
 ## Prerequisites
+
 - GitHub account
 - Git installed locally
-- Familiarity with JSON syntax
-- Basic understanding of GitHub fork/PR workflow
+- Python 3
+- Familiarity with JSON and the GitHub fork/PR workflow
+- It is **highly recommended** to run 5 samples (turns) for non-agentic evaluations, while one sample is sufficient for agentic evaluations. A marker on the leaderboard indicates fewer than 5 samples, where applicable.
+- Strongly preferred: provide a CVDP evaluation `work*` directory (it must contain `composite_report.txt`) so `scripts/pack_logs.py` can pack your logs and trajectories into a uniform format. A marker on the leaderboard indicates non-standard log or trajectory submissions.
 
-## Steps to Contribute
+## Workflow at a glance
 
-### 1. Fork and Clone
+1. Fork, clone, and create a branch
+2. Add an organization logo if needed
+3. Add your result entry to `data/leaderboards.json`
+4. Validate the JSON
+5. Pack evaluation logs and hand them off for Hugging Face upload
+6. Test the site locally
+7. Commit, push, and open a PR
+
+---
+
+## 1. Fork, clone, and branch
+
 ```bash
-# Fork the repository via GitHub web UI, then:
+# Fork the repository via the GitHub web UI, then:
 git clone https://github.com/YOUR_GITHUB_USERNAME/lbc-bench.github.io.git
 cd lbc-bench.github.io
+git checkout -b add-model-results   # use a descriptive branch name
 ```
 
-### 2. Create a Branch
-```bash
-git checkout -b add-model-results
-# Use a descriptive branch name
-```
+## 2. Add an organization logo (if needed)
 
-### 3. Add Model's Logo (if needed)
-If model organization's logo isn't already in `./img/`, add it:
+If the model organization's logo is not already under `./img/`, add it:
+
 ```bash
 cp model-logo.png ./img/
 ```
 
-### 4. Edit `data/leaderboards.json`
+## 3. Edit the leaderboard
 
-Locate the appropriate leaderboard section:
+### Choose the section
+
+Add your object to the `results` array of the matching leaderboard in `data/leaderboards.json`:
+
 - `code-generation-limited-context`
-- `code-comprehension`  
+- `code-comprehension`
 - `code-generation-heavy-context`
 
-Add your entry to the `results` array:
+### Create a unique `id`
+
+Generate a fresh GUID for every new entry before you add it. `scripts/pack_logs.py` looks up rows by this `id`, and duplicate IDs will fail.
+
+```bash
+python -c "import uuid; print(uuid.uuid4())"
+```
+
+or, if available:
+
+```bash
+uuidgen
+```
+
+### Example entry
+
 ```json
 {
     "id": "6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999",
@@ -57,45 +87,54 @@ Add your entry to the `results` array:
         "Open Source Tool: tool-name",
         "Commercial Tool: tool-name",
         "Model: model-name",
-        "Agnet:",
-        "Org: your-org",
+        "Agent: agent-name",
+        "Org: model-organization",
         "Evaluation style: non-agentic",
         "Single turn: true"
     ]
 }
 ```
 
-Generate a fresh GUID for the `id` field before adding a new entry. For example:
-```bash
-python -c "import uuid; print(uuid.uuid4())"
-```
-or (if available on your system):
-```bash
-uuidgen
-```
+Leave `"logs/trajs"` empty for now if you will fill it with `pack_logs.py` in the next section. Set `"checked": false` for new submissions.
 
-#### Field Descriptions
+**Notes:** You should fill `notes` with run details (token usage, runtime, model/agent info, sample count, and so on). Use `\n` for line breaks.
+
+### Field reference
+
 | Field | Description | Notes |
 |-------|-------------|-------|
-| `id` | Unique GUID for this result object | Required. Create a fresh GUID for each new entry |
+| `id` | Unique GUID for this result | Required. Create a fresh GUID for each new entry |
 | `name` | Model name | Required |
-| `logo` | Logo path array | Use existing or add new to `./img/` |
+| `logo` | Paths to organization logo image(s) | Use an existing file under `./img/` or add a new one |
 | `site` | Organization URL | Who ran the benchmark |
-| `cost` | Average cost per test in USD.  For instance if it costs $C to run 5 samples and there are 800 tests in total, this value will be C/(5 x 800)  | Numeric value - <br>`null` if cost unavailable |
-| `resolved_full` | Pass rate<sup>&dagger;</sup> | Percentage - <br>`null` if commercial simulator unavailable |
+| `cost` | Average cost per test in USD | If it costs `$C` to run 5 samples across 800 tests, use `C/(5 × 800)`. Use `null` if cost is unavailable |
+| `resolved_full` | Pass rate<sup>&dagger;</sup> | Percentage — use `null` if a commercial simulator was unavailable |
 | `resolved_oss` | Pass rate<sup>&Dagger;</sup> | Percentage |
-| `date` | Run date | Format: YYYY-MM-DD |
-| `logs/trajs` | URL to access logs and trajectories | Filled by `scripts/pack_logs.py` (see step 5) |
-| `checked` | Validation status | Set to `false` for new submissions |
+| `date` | Run date | `YYYY-MM-DD` |
+| `logs/trajs` | URL to logs and trajectories | Usually filled by `scripts/pack_logs.py` |
+| `checked` | Si2 verification flag | Must be `false` for new submissions |
 | `release` | Benchmark version | Current release number |
-| `tags` |  Properties (filterable) | Follow format shown above |
-| `notes` | Detailed run information | Token usage, runtime, model and agent info, number of samples, etc. Use \n to break long lines. Populating this field is **HIGHLY** recommended |
+| `tags` | Filterable properties | Follow the example above; include `Model:` and `Agent:` |
+| `notes` | Detailed run information | Should include tokens, runtime, model/agent, sample count, etc. |
 
-<sup>†</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) and commercial simulator dataset run.<br>
-<sup>‡</sup> Calculated as (Total Passed Problems / Total Attempted Problems), sourced from the "Overall Problem Statistics" table of each open-oource (OSS) dataset run.<br>
+<sup>†</sup> Pass rate over **open-source and commercial** simulator runs: (Total Passed Problems / Total Attempted Problems) from the “Overall Problem Statistics” table in each evaluated report. Use `null` if commercial simulator results are unavailable.<br>
+<sup>‡</sup> Pass rate over **open-source (OSS) only** simulator runs: same formula and table, OSS datasets only.
 
-### 5. Pack Evaluation Logs
-After your model entry exists in `data/leaderboards.json`, run `scripts/pack_logs.py` to pack the CVDP evaluation work directory (logs) and fill the corresponding `logs/trajs` field of `data/leaderboards.json` with a Hugging Face URL:
+## 4. Validate JSON
+
+Validate right after editing so the new `id` exists and the file is well-formed before you run `pack_logs.py`:
+
+```bash
+python -m json.tool data/leaderboards.json
+```
+
+## 5. Attach evaluation logs
+
+This step updates `logs/trajs` in your JSON and prepares an upload tree. The packed files themselves are **not** committed in the PR; send them to Si2 for Hugging Face upload.
+
+`logs/trajs` is the JSON field that stores the public URL to the evaluation logs and trajectories once upload is complete.
+
+After your entry exists in `data/leaderboards.json`, run:
 
 ```bash
 python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999
@@ -104,64 +143,59 @@ python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a78
 ```
 
 - `-p` is the CVDP evaluation `work*` directory (must contain `composite_report.txt`).
-- `-i/--id` is required and must match exactly one object `id` in `data/leaderboards.json`.
-- `id` values must be globally unique in `data/leaderboards.json` (the script errors out on duplicates or no match).
-- If `logs/trajs` is empty, the script sets it to a Hugging Face URL ending with that `id` GUID. If `logs/trajs` is already set, it is left as is.
+- `-i` / `--id` must match exactly one object `id` in `data/leaderboards.json`.
+- IDs must be globally unique (the script errors on duplicates or no match).
+- If `logs/trajs` is empty, the script sets it to a Hugging Face URL ending with that GUID. If it is already set, it is left unchanged.
 - Output goes under `./upload/<GUID>/` by default (`-u` to override). That tree holds `README.md`, the dataset-named folder, `composite_report.txt`, and `logs.tgz`.
-- `--dry-run` prints the planned GUID-named folder, paths, and JSON update without writing files.
+- `--dry-run` prints the planned paths and JSON update without writing files.
 
-Contact Si2 with the location of your `upload` data so they can inspect it and perform the final Hugging Face upload.
+Contact Ali Sadigh (ali dot sadigh at si2 dot org) with the location of your `upload` data so the logs can be inspected and uploaded to Hugging Face.
 
-### 6. Validate JSON Syntax
-Ensure your JSON is valid. Use any JSON validator or:
-```bash
-python -m json.tool data/leaderboards.json
-```
+## 6. Test locally
 
-### 7. Test Locally
 ```bash
 make build && make serve
 ```
-View at: http://localhost:8000
 
-Verify your entry appears correctly in the leaderboard.
+Open http://localhost:8000 and confirm your entry appears correctly on the leaderboard.
 
-### 8. Commit and Push
+## 7. Commit, push, and open a PR
+
 ```bash
-git add data/leaderboards.json ./img/model-logo.png (only if a new image was added)
+git add data/leaderboards.json
+# also add ./img/model-logo.png if you added a new logo
 git commit -m "Add results for your-model-name"
 git push origin add-model-results
 ```
 
-### 9. Create Pull Request (PR)
-1. Go to your fork on GitHub
-2. Click "Contribute" -> "Open pull request"
-3. Provide a clear description:
-   - Model name
-   - Leaderboard section
-   - Brief summary of results
-4. Submit PR
+Then on GitHub:
+
+1. Open a pull request from your fork
+2. Describe the model name, leaderboard section, and a short summary of the results
+3. Submit the PR
+
+Do not commit the `./upload/` tree unless Si2 asks you to.
 
 ## Guidelines
 
-**DO:**
-- Validate JSON syntax before submitting
-- Test locally before creating PR
-- Use accurate benchmark results
-- Follow the existing entry format
-- Set `checked: false` for new submissions
+**Do**
 
-**DON'T:**
-- Modify other entries without justification
-- Submit without local testing
-- Use invalid JSON syntax
-- Omit required fields
+- Validate JSON and test locally before opening a PR
+- Use accurate results and the existing entry format
+- Keep `checked: false` on new submissions
 
-## Review Process
-- PRs are reviewed by the repository owner (Si2)
-- Validation may take time
+**Don't**
+
+- Change other entries without a clear reason
+- Omit required fields or submit invalid JSON
+
+## Review process
+
+- PRs are reviewed by Si2
 - You may be asked for clarifications or corrections
-- Approved entries will be merged to main branch
+- Approved entries are merged to `main`
+- After review, Si2 uploads the packed evaluation logs to Hugging Face
 
 ## Questions?
+
 Open an issue in the repository or contact Si2.
