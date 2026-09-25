@@ -19,7 +19,7 @@ This guide explains how to add or update benchmark results on the LBC leaderboar
 2. Add an organization logo if needed
 3. Add your result entry to `data/leaderboards.json`
 4. Validate the JSON
-5. Pack evaluation logs and hand them off for Hugging Face upload
+5. If available, pack evaluation logs into `upload.tar.gz` and attach that archive to a GitHub release
 6. Test the site locally
 7. Commit, push, and open a PR
 
@@ -70,7 +70,7 @@ uuidgen
 
 ```json
 {
-    "id": "6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999",
+    "id": "244264cd-9fc4-49d7-be57-3bc5269ef57b",
     "name": "model-name",
     "logo": ["./img/model-logo.png"],
     "site": "https://your-organization-site",
@@ -97,7 +97,7 @@ uuidgen
 
 Leave `"logs/trajs"` empty for now if you will fill it with `pack_logs.py` in the next section. Set `"checked": false` for new submissions.
 
-**Notes:** You should fill `notes` with run details (token usage, runtime, model/agent info, sample count, and so on). Use `\n` for line breaks.
+**Notes:** It is highly recommended that you fill `notes` with run details (token usage, runtime, model/agent info, sample count, and so on). Use `\n` for line breaks.
 
 ### Field reference
 
@@ -130,26 +130,24 @@ python -m json.tool data/leaderboards.json
 
 ## 5. Attach evaluation logs
 
-This step updates `logs/trajs` in your JSON and prepares an upload tree. The packed files themselves are **not** committed in the PR; send them to Si2 for Hugging Face upload.
+Skip this step if no logs/trajectories are available.  This step updates the `logs/trajs` field in your JSON and writes a **single gzipped tarball** (`./upload.tar.gz` by default). Do **not** commit this generated archive in the PR. You will later attach it to a GitHub release on your fork. Upon a successful PR creation, this release asset will be copied to a private storage for Si2 to examine and publish it.
 
-`logs/trajs` is the JSON field that stores the public URL to the evaluation logs and trajectories once upload is complete.
+`logs/trajs` is the JSON field that stores the public URL to the evaluation logs and trajectories once Si2 has published them.
 
 After your entry exists in `data/leaderboards.json`, run:
 
 ```bash
-python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999
+python scripts/pack_logs.py -p /path/to/work_dir -i 244264cd-9fc4-49d7-be57-3bc5269ef57b
 # Optional: preview without writing
-python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999 --dry-run
+python scripts/pack_logs.py -p /path/to/work_dir -i 244264cd-9fc4-49d7-be57-3bc5269ef57b --dry-run
 ```
 
 - `-p` is the CVDP evaluation `work*` directory (must contain `composite_report.txt`).
 - `-i` / `--id` must match exactly one object `id` in `data/leaderboards.json`.
 - IDs must be globally unique (the script errors on duplicates or no match).
 - If `logs/trajs` is empty, the script sets it to a Hugging Face URL ending with that GUID. If it is already set, it is left unchanged.
-- Output goes under `./upload/<GUID>/` by default (`-u` to override). That tree holds `README.md`, the dataset-named folder, `composite_report.txt`, and `logs.tgz`.
-- `--dry-run` prints the planned paths and JSON update without writing files.
-
-Contact Ali Sadigh (ali dot sadigh at si2 dot org) with the location of your `upload` data so the logs can be inspected and uploaded to Hugging Face.
+- Output is `./upload.tar.gz` by default (`-u` / `--upload` to override). That file is a gzipped tarball of the logs (plus a `README.md` of the result entry). Do not attach a folder or loose files.
+- `--dry-run` prints the planned archive path and JSON update without writing files.
 
 ## 6. Test locally
 
@@ -168,13 +166,12 @@ git commit -m "Add results for your-model-name"
 git push origin add-model-results
 ```
 
-Then on GitHub:
+Then on GitHub web interface (or using equivalent GitHub CLI commands):
 
-1. Open a pull request from your fork
-2. Describe the model name, leaderboard section, and a short summary of the results
-3. Submit the PR
-
-Do not commit the `./upload/` tree unless Si2 asks you to.
+1. Publish `upload.tar.gz` as the only attached binary on a GitHub release on your fork, then in the next step you will paste the release URL into the pull request. GitHub also attaches Source code zip/tar.gz files; ignore those
+2. Open a pull request from your fork
+3. Describe the model name, leaderboard section, a short summary of the results and paste the release URL from the above step, **as described in the pull-request template** 
+4. Submit the PR
 
 ## Guidelines
 

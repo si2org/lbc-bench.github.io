@@ -3,27 +3,30 @@
 
 Reads composite_report.txt from -p for dataset name, maps dataset name ->
 leaderboard section, and finds exactly one result object by required -i/--id.
-The id is treated as the GUID for upload naming and URL generation.
+The id is treated as the GUID for archive naming and URL generation.
 
 If logs/trajs is empty for the matched object, this script sets it to the Hugging
 Face URL derived from the id GUID. If logs/trajs already has a value, it is left
 unchanged (but must match the same GUID).
 
--u/--upload-dir is optional for output and defaults to <PWD>/upload.
+-u/--upload is optional for output and defaults to <PWD>/upload.tar.gz. The
+output is a single gzipped tarball to attach to the GitHub release (not a
+folder, and not loose files).
 
 Examples:
   python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999
   python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999 --dry-run
-  python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999 -u /tmp/upload
+  python scripts/pack_logs.py -p /path/to/work_dir -i 6ff8fa6c-3b75-4edd-b7ae-2a7838b5f999 -u /tmp/upload.tar.gz
 """
 
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import re
-import shutil
 import tarfile
+import time
 import uuid
 from pathlib import Path
 
@@ -67,10 +70,10 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "-u",
-        "--upload-dir",
+        "--upload",
         type=Path,
-        default=Path("./upload"),
-        help="upload root directory (default: ./upload relative to PWD)",
+        default=Path("./upload.tar.gz"),
+        help="output gzipped tarball (default: ./upload.tar.gz relative to PWD)",
     )
     parser.add_argument(
         "--dry-run",
@@ -195,16 +198,33 @@ def set_logs_trajs_preserving_format(
     return raw[:arr_start] + new_section + raw[arr_end:]
 
 
-def pack_contents(src_dir: Path, dest_tgz: Path) -> None:
-    """Tar+gzip the contents of src_dir into dest_tgz (not src_dir itself)."""
+def resolve_upload_path(path: Path) -> Path:
+    """Treat -u as a .tar.gz file path, never as an upload folder."""
+    path = path.expanduser()
+    if not path.is_absolute():
+        path = (Path.cwd() / path).resolve()
+    else:
+        path = path.resolve()
+    if path.suffixes[-2:] != [".tar", ".gz"] and path.suffix != ".tgz":
+        path = path.with_name(path.name + ".tar.gz")
+    return path
+
+
+def pack_upload_tarball(src_dir: Path, dest_tgz: Path, prefix: str, readme: str) -> None:
+    """Write one gzipped tarball: README.md plus the work-dir contents under prefix."""
     if not src_dir.is_dir():
         raise FileNotFoundError(f"source directory does not exist: {src_dir}")
     dest_tgz.parent.mkdir(parents=True, exist_ok=True)
-    with tarfile.open(dest_tgz, "w:gz") as tar:
+    readme_bytes = readme.encode("utf-8")
+    info = tarfile.TarInfo(name=f"{prefix}/README.md")
+    info.size = len(readme_bytes)
+    info.mtime = int(time.time())
+    with tarfile.open(dest_tgz, mode="w:gz") as tar:
+        tar.addfile(info, io.BytesIO(readme_bytes))
         for entry in sorted(src_dir.iterdir()):
             if entry.name == "git_cache":
                 continue
-            tar.add(entry, arcname=entry.name)
+            tar.add(entry, arcname=f"{prefix}/{entry.name}")
 
 
 def readme_text(item: dict) -> str:
@@ -214,9 +234,7 @@ def readme_text(item: dict) -> str:
 def main() -> None:
     args = parse_args()
     work_dir = args.work_dir.expanduser().resolve()
-    upload_root = args.upload_dir.expanduser()
-    if not upload_root.is_absolute():
-        upload_root = (Path.cwd() / upload_root).resolve()
+    dest_tgz = resolve_upload_path(args.upload)
 
     report = work_dir / "composite_report.txt"
     if not report.is_file():
@@ -259,14 +277,9 @@ def main() -> None:
         url_was_empty = False
 
     hf_url = f"{HF_BASE.rstrip('/')}/{guid}"
-    guid_dir = upload_root / guid
-    logs_dir = guid_dir / dataset
-    readme_path = guid_dir / "README.md"
-    dest_tgz = logs_dir / "logs.tgz"
-    dest_report = logs_dir / "composite_report.txt"
 
-    if logs_dir.exists():
-        raise SystemExit(f"error: dataset folder already exists: {logs_dir}")
+    if dest_tgz.exists():
+        raise SystemExit(f"error: output archive already exists: {dest_tgz}")
 
     print(f"work_dir:     {work_dir}")
     print(f"dataset:      {dataset} -> {category}")
@@ -274,11 +287,7 @@ def main() -> None:
     print(f"name:         {item.get('name', '')}")
     print(f"GUID:         {guid} ({'from id' if url_was_empty else 'from existing URL'})")
     print(f"HF URL:       {hf_url}")
-    print(f"guid_dir:     {guid_dir}")
-    print(f"logs_dir:     {logs_dir}")
-    print(f"README:       {readme_path}")
-    print(f"logs.tgz:     {dest_tgz}")
-    print(f"report:       {dest_report}")
+    print(f"archive:      {dest_tgz}")
     print(
         f"json:         {LEADERBOARDS_JSON} "
         f"({'set logs/trajs' if url_was_empty else 'leave logs/trajs'})"
@@ -303,16 +312,7 @@ def main() -> None:
             )
         print(f"ok  {category}/id={args.id}: already set")
 
-    # 2-5. Upload tree: README, dataset dir, report copy, logs.tgz.
-    guid_dir.mkdir(parents=True, exist_ok=True)
-    readme_path.write_text(readme_text(item), encoding="utf-8")
-    print(f"wrote {readme_path}")
-
-    logs_dir.mkdir(parents=False, exist_ok=False)
-    shutil.copy2(report, dest_report)
-    print(f"copied {report} -> {dest_report}")
-
-    pack_contents(work_dir, dest_tgz)
+    pack_upload_tarball(work_dir, dest_tgz, guid, readme_text(item))
     print(f"packed {work_dir} -> {dest_tgz}")
     print("done")
 
