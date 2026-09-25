@@ -46,7 +46,12 @@ jobs:
         run: |
           set -euo pipefail
 
-          urls=$(printf '%s' "$BODY" \
+          # The pull request template keeps its instructions, including an
+          # example release URL, in HTML comments. Those are visible in the
+          # edit box and in this raw body, but they are not a submission.
+          visible=$(printf '%s' "$BODY" | python3 -c 'import re,sys; print(re.sub(r"<!--.*?-->", "", sys.stdin.read(), flags=re.S), end="")')
+
+          urls=$(printf '%s' "$visible" \
             | grep -oiE 'https://github\.com/[^/[:space:]]+/[^/[:space:]]+/releases/tag/[^][:space:])>",]+' \
             || true)
 
