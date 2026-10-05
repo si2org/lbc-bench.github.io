@@ -28,6 +28,30 @@
                         "Single turn: true"
                     ]
                 },
+                        {
+    "id": "244264cd-9fc4-49d7-be57-3bc5269ef57b",
+    "name": "model-name",
+    "logo": ["./img/model-logo.png"],
+    "site": "https://your-organization-site",
+    "folder": "",
+    "cost": 0.07,
+    "resolved_full": 29.46,
+    "resolved_oss": 40.81,
+    "date": "2025-11-30",
+    "logs/trajs": "https://huggingface.co/buckets/si2admin/lbc-bench-storage/tree/244264cd-9fc4-49d7-be57-3bc5269ef57b",
+    "notes": "Tokens used: XXXX\nModel snapshot: XXXX",
+    "checked": false,
+    "release": "1.1.0",
+    "tags": [
+        "Open Source Tool: tool-name",
+        "Commercial Tool: tool-name",
+        "Model: model-name",
+        "Agent: agent-name",
+        "Org: model-organization",
+        "Evaluation style: non-agentic",
+        "Single turn: true"
+    ]
+        },
                 {
                     "id": "9159bfb2-5550-4b7e-acd1-bfd88a418a31",
                     "name": "gpt-4o-mini",
