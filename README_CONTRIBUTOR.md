@@ -10,8 +10,11 @@ This guide explains how to add or update benchmark results on the LBC leaderboar
 - Git installed locally
 - Python 3
 - Familiarity with JSON and the GitHub fork/PR workflow
-- It is **highly recommended** to run 5 samples (turns) for non-agentic evaluations, while one sample is sufficient for agentic evaluations. A marker on the leaderboard indicates fewer than 5 samples, where applicable.
-- Strongly preferred: provide a CVDP evaluation `work*` directory (it must contain `composite_report.txt`) so `scripts/pack_logs.py` can pack your logs and trajectories into a uniform format. A marker on the leaderboard indicates non-standard log or trajectory submissions.
+
+## Recommendations
+
+- For non-agentic evaluations, 5 samples (turns) are highly recommended. For agentic evaluations, a single sample is sufficient. Non-agentic submissions with fewer than 5 samples are marked accordingly on the leaderboard.
+- It is also highly desirable that you provide your evaluation logs as proof of work. To do so, run `scripts/pack_logs.py` on all `work*` directories from your evaluation. Each `work*` directory must contain a `composite_report.txt` file so that `scripts/pack_logs.py` can package the logs in a uniform format. Submissions with non-standard logs or trajectories will be identified by a marker on the leaderboard.
 
 ## Workflow at a glance
 
@@ -19,7 +22,7 @@ This guide explains how to add or update benchmark results on the LBC leaderboar
 2. Add an organization logo if needed
 3. Add your result entry to `data/leaderboards.json`
 4. Validate the JSON
-5. If available, pack evaluation logs into `upload.tar.gz` and attach that archive to a GitHub release
+5. If available, pack the evaluation logs into `upload.tgz`, which can then be attached to your PR as a release asset
 6. Test the site locally
 7. Commit, push, and open a PR
 
@@ -54,7 +57,7 @@ Add your object to the `results` array of the matching leaderboard in `data/lead
 
 ### Create a unique `id`
 
-Generate a fresh GUID for every new entry before you add it. `scripts/pack_logs.py` looks up rows by this `id`, and duplicate IDs will fail.
+Generate a fresh GUID for every new entry's `id` field. `scripts/pack_logs.py` looks up rows by this `id`, and duplicate IDs will fail.
 
 ```bash
 python -c "import uuid; print(uuid.uuid4())"
@@ -122,7 +125,7 @@ Leave `"logs/trajs"` empty for now if you will fill it with `pack_logs.py` in th
 
 ## 4. Validate JSON
 
-Validate right after editing so the new `id` exists and the file is well-formed before you run `pack_logs.py`:
+Validate right after editing so the new `id` exists and the file is well-formed before you run `scripts/pack_logs.py` in the next step:
 
 ```bash
 python -m json.tool data/leaderboards.json
@@ -130,24 +133,31 @@ python -m json.tool data/leaderboards.json
 
 ## 5. Attach evaluation logs
 
-Skip this step if no logs/trajectories are available.  This step updates the `logs/trajs` field in your JSON and writes a **single gzipped tarball** (`./upload.tar.gz` by default). Do **not** commit this generated archive in the PR. You will later attach it to a GitHub release on your fork. Upon a successful PR creation, this release asset will be copied to a private storage for Si2 to examine and publish it.
+Skip this step if no logs/trajectories are available to share.  This step updates the `logs/trajs` field in your JSON and creates a folder (`./upload` by default) consisting of the compressed contents of the CVDP work directories.  Upon a successful PR creation, this release asset will be copied to private storage for Si2 to examine and publish it.
 
 `logs/trajs` is the JSON field that stores the public URL to the evaluation logs and trajectories once Si2 has published them.
 
-After your entry exists in `data/leaderboards.json`, run:
+After your entry has been added to `data/leaderboards.json`, run the following command once for each available CVDP dataset `work*` directory in the category for which you are submitting results. For example, the `Code Generation Limited Context` category currently contains four datasets, so the script should be run four times, each time pointing to a different dataset evaluation `work*` directory to pack everything in the `./upload` folder.
 
 ```bash
-python scripts/pack_logs.py -p /path/to/work_dir -i 244264cd-9fc4-49d7-be57-3bc5269ef57b
 # Optional: preview without writing
 python scripts/pack_logs.py -p /path/to/work_dir -i 244264cd-9fc4-49d7-be57-3bc5269ef57b --dry-run
+
+python scripts/pack_logs.py -p /path/to/work_dir -i 244264cd-9fc4-49d7-be57-3bc5269ef57b
 ```
 
 - `-p` is the CVDP evaluation `work*` directory (must contain `composite_report.txt`).
 - `-i` / `--id` must match exactly one object `id` in `data/leaderboards.json`.
 - IDs must be globally unique (the script errors on duplicates or no match).
 - If `logs/trajs` is empty, the script sets it to a Hugging Face URL ending with that GUID. If it is already set, it is left unchanged.
-- Output is `./upload.tar.gz` by default (`-u` / `--upload` to override). That file is a gzipped tarball of the logs (plus a `README.md` of the result entry). Do not attach a folder or loose files.
-- `--dry-run` prints the planned archive path and JSON update without writing files.
+- Output goes under `./upload/<GUID>/` by default (`-u` to override). That tree holds `README.md`, the dataset-named folder, `composite_report.txt`, and `logs.tgz`.
+- `--dry-run` prints the planned paths and JSON update without writing files.
+
+GitHub release assets must be uploaded as files, not directories. Therefore, package the `./upload` folder into a single archive file, such as `./upload.tgz` (or `./upload.zip`), using the following command:
+```bash
+tar -czf ./upload.tgz ./upload
+(or zip -r ./upload.zip ./upload)
+```
 
 ## 6. Test locally
 
@@ -166,12 +176,14 @@ git commit -m "Add results for your-model-name"
 git push origin add-model-results
 ```
 
-Then on GitHub web interface (or using equivalent GitHub CLI commands):
+Then on the GitHub web interface (or using equivalent GitHub CLI commands):
 
-1. Publish `upload.tar.gz` as the only attached binary on a GitHub release on your fork, then in the next step you will paste the release URL into the pull request. GitHub also attaches Source code zip/tar.gz files; ignore those
+1. If you are sharing your evaluation logs, publish `./upload.tgz` as the only binary asset in a GitHub release on your fork. To do this, navigate to the repository's `Releases` page, click Draft a new release, and upload `./upload.tgz` as the release asset. After the release is published, copy the release URL; you will provide this URL in your pull request in the next step.
+GitHub automatically includes source code archives (.zip and .tar.gz) with every release. These files are created by GitHub and can be ignored. Only the uploaded `./upload.tgz` file will be used for result submission.
 2. Open a pull request from your fork
-3. Describe the model name, leaderboard section, a short summary of the results and paste the release URL from the above step, **as described in the pull-request template** 
+3. Provide a brief summary of your results and include the release URL from the previous step, **as described in the pull-request template**. 
 4. Submit the PR
+5. After the previous step completes successfully, delete any previously created release asset, if applicable.
 
 ## Guidelines
 
