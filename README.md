@@ -76,6 +76,11 @@ The site is statically generated and can be hosted on GitHub Pages or any other 
 
 ```
 .
+├── .github/               # GitHub configuration
+│   ├── pull_request_template.md  # PR template with log-release instructions
+│   └── workflows/
+│       ├── deploy.yml     # Builds and deploys the site to GitHub Pages
+│       └── stage-logs-to-hf.yml  # Copies PR log releases to a private Hugging Face bucket
 ├── build.py               # Build script that generates the static site
 ├── CNAME                  # Domain configuration for GitHub Pages
 ├── css/                   # CSS files organized by functionality
@@ -99,8 +104,9 @@ The site is statically generated and can be hosted on GitHub Pages or any other 
 │   └── viewer.js          # Results viewer functionality
 ├── Makefile               # Automation for common tasks
 ├── pyproject.toml         # Python project configuration and dependencies
+├── README_CONTRIBUTOR.md  # Guide for contributors adding leaderboard results
 ├── scripts/               # Utility scripts for data/log handling
-│   └── pack_logs.py       # Packs CVDP run logs and updates logs/trajs by result id
+│   └── pack_logs.py       # Packs one CVDP work* directory into ./upload/<GUID>/<dataset>/ and sets logs/trajs
 └── templates/             # Jinja2 templates
     ├── base.html          # Base template with common structure
     ├── _leaderboard_table.html  # Reusable leaderboard table component
